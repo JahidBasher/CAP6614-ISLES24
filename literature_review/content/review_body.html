@@ -1,0 +1,117 @@
+<section id="scope">
+<h2><span class="secno">1</span>Scope and method</h2>
+<p>This review supports a CAP6614 project on final infarct prediction with the ISLES'24 dataset. It answers four questions. What is the current state of the art? Does the temporal information in CT perfusion (CTP) help? Are video architectures a plausible backbone? Can vision-language models (VLMs) contribute?</p>
+<p>We screened 51 candidate papers, found through forward citation of the ISLES'24 challenge and dataset papers, the reference lists of included papers, and keyword searches on arXiv, Semantic Scholar and MICCAI proceedings. We included 41: 39 are quoted, and 2 ISLES'24 workshop chapters are listed but could not be read. Every numbered marker in the text links to verbatim excerpts. Each excerpt was string-matched against the text extracted from the downloaded paper (<a href="#verification">method</a>). Paragraphs labelled <span class="ours-tag">Our reading</span> are our interpretation and are not attributed to any paper.</p>
+</section>
+
+<section id="lineage">
+<h2><span class="secno">2</span>From visible lesions to future tissue</h2>
+<p>The ISLES challenges have moved between two kinds of task. ISLES 2016 and 2017 already targeted lesion outcome prediction, using MRI [[winzeck2018isles#1]]. The top entries were mostly CNNs, yet the organisers concluded that outcome prediction remained hard [[winzeck2018isles#2]]. ISLES 2018 switched to CT and asked teams to predict the infarct core from CTP, using DWI acquired shortly after as the reference [[hakim2021isles18#1]]. Its best entry reached a Dice of 0.51, against 0.3 for a conventional threshold method [[hakim2021isles18#2]], and top entries used the raw perfusion data [[hakim2021isles18#3]]. ISLES 2022 went back to segmenting lesions that are visible on MRI, with 400 cases [[hernandez2022isles22#1]]. Its top submissions became DeepISLES, an ensemble model [[delarosa2025deepisles#1]] whose segmentations neuroradiologists preferred over manual ones [[delarosa2025deepisles#2]].</p>
+<p>ISLES'24 combines both threads. It asks for the final infarct, predicted from imaging and clinical data acquired before treatment [[delarosa2024isles24#1]]. The dataset has 245 cases: 149 public training cases and a hidden test set of 96 [[riedel2026isles24dataset#1]]. CT is acquired before therapy and follow-up MRI 2–9 days after reperfusion therapy [[riedel2026isles24dataset#2]]. The label masks were derived from that MRI with DeepISLES [[delarosa2024isles24#23]]. Only patients with successful recanalization (TICI 2b or 3) are included [[delarosa2024isles24#20]]. The challenge scores Dice together with volume and lesion-wise metrics [[delarosa2024isles24#3]]. The clinical reference standard is to deconvolve the perfusion signal into maps and then threshold those maps [[riedel2026isles24dataset#3]].</p>
+<p class="ours"><span class="ours-tag">Our reading</span> The ISLES'24 label describes tissue days after treatment. A model can only infer it, never observe it, in the input. Dice scores from ISLES 2018 or 2022 are therefore not a fair reference point for ISLES'24, because those tasks segment tissue that is already abnormal on the reference scan. Because the cohort is restricted to successful reperfusion, the task is in effect "predict the infarct, given that the vessel was reopened."</p>
+</section>
+
+<section id="sota">
+<h2><span class="secno">3</span>The state of the art at ISLES'24</h2>
+<p>All three top-ranked ISLES'24 methods are based on nnU-Net [[delarosa2024isles24#4]]. The winning team, Kurtlab, used the large residual-encoder preset, ResEnc L [[ren2025isles24#2]]. They credit their result to preprocessing: deep-learning skull stripping plus custom intensity windows for each modality [[ren2025isles24#1]]. On their best cross-validation fold, standard normalization gave a Dice of 21.8%, custom windowing 31.0%, and their final pipeline 31.8% [[ren2025isles24#3]]. On the hidden test set the winning model reached a Dice of 0.285 ± 0.213 and an absolute volume difference of 21.2 ± 37.2 mL [[delarosa2024isles24#2]]. The top three teams were separated by about 3 Dice points [[ren2025isles24#5]].</p>
+<p>The runner-up, AMC-Axolotls, used a cascaded nnU-Net instead of a single model [[delarosa2024isles24#5]]. It added baseline infarct and penumbra masks derived from NCCT and CTA to the perfusion maps [[delarosa2024isles24#21]]. A SWITCH 2024 paper from Amsterdam UMC on the same approach found that these masks improve Dice by 16% when CTP is missing, but no longer help once the perfusion maps are present [[mojtahedi2025switch#1]]. The third team, Ninjas, used only the 4D CTP series [[delarosa2024isles24#6]]. They took 20 time points around peak contrast and fed them as 20 input channels [[delarosa2024isles24#22]].</p>
+<p>The challenge report draws several lessons. The first- and second-ranked teams combined all imaging modalities except 4D CTP, and they beat single-modality models [[delarosa2024isles24#7]]. Simple rCBF thresholds estimated infarct volume about as well as the best networks, but deep learning localized the infarct better voxel by voxel [[delarosa2024isles24#8]]. One team added clinical variables and saw no tangible gain [[delarosa2024isles24#9]]. The organisers attribute this to plain concatenation and list CLIP-style or attention-based fusion as an open question [[delarosa2024isles24#10]].</p>
+<p>The report names several causes for the low scores. Infarcts grow at different rates depending on collateral circulation [[delarosa2024isles24#15]]. Registration between acute CT and follow-up MRI introduces errors [[delarosa2024isles24#16]]. For infarcts under 5 mL, every method showed poor volumetric agreement [[delarosa2024isles24#17]]. Models that rely only on CTP may be more sensitive to acquisition protocol [[delarosa2024isles24#18]], while NCCT may provide a more stable input across centres [[delarosa2024isles24#19]].</p>
+<div class="table-wrap" role="region" aria-label="Comparison of methods evaluated on ISLES'24" tabindex="0">
+<table class="cmp">
+<caption>Methods evaluated on ISLES'24 data, grouped by how they were evaluated. Results from different protocols cannot be ranked against each other.</caption>
+<thead><tr><th scope="col">Work</th><th scope="col">Inputs</th><th scope="col">Model</th><th scope="col">Evaluation protocol</th><th scope="col">Reported result</th></tr></thead>
+<tbody>
+<tr class="grp"><th colspan="5" scope="colgroup">Official hidden test set (N = 98 in the challenge report)</th></tr>
+<tr><td>Kurtlab, 1st</td><td>CTA, CBF, CBV, MTT, Tmax [[ren2025isles24#6|ren2025isles24#7]]</td><td>nnU-Net ResEnc L [[ren2025isles24#2]]</td><td>Hidden test; submitted the best of 10 folds [[ren2025isles24#4]]</td><td class="num">Dice 0.285 [[delarosa2024isles24#2]]</td></tr>
+<tr><td>AMC-Axolotls, 2nd</td><td>NCCT, CTA, perfusion maps + baseline masks [[delarosa2024isles24#21]]</td><td>Cascaded nnU-Net [[delarosa2024isles24#5]]</td><td>Hidden test</td><td class="num">Dice 26.27% [[ren2025isles24#5]]</td></tr>
+<tr><td>Ninjas, 3rd</td><td>4D CTP, 20 time points as channels [[delarosa2024isles24#22]]</td><td>nnU-Net [[delarosa2024isles24#4]]</td><td>Hidden test</td><td class="num">Dice 25.46% [[ren2025isles24#5]]</td></tr>
+<tr class="grp"><th colspan="5" scope="colgroup">Studies with their own data splits</th></tr>
+<tr><td>Amador et al. (SWITCH 2024)</td><td>4D CTP</td><td>CNN encoder + Transformer + CNN decoder [[amador2025switch#1]]</td><td>143 ISLES'24 patients; split not stated in the abstract</td><td class="num">Dice 0.20, F1 0.02 [[amador2025switch#2]]</td></tr>
+<tr><td>Martínez Cegarra et al. 2026</td><td>CTA + four perfusion maps; cascade uses 2 then 7 channels [[cegarra2026isles#9|cegarra2026isles#8]]</td><td>nnU-Net, cascade, SegFormer3D [[cegarra2026isles#8]]</td><td>Fixed 15-patient test set [[cegarra2026isles#5]]</td><td class="num">Dice 0.224 cascade, 0.163 SegFormer3D [[cegarra2026isles#2|cegarra2026isles#3]]</td></tr>
+<tr class="grp"><th colspan="5" scope="colgroup">Different target or unit of evaluation</th></tr>
+<tr><td>Britt et al. 2026</td><td>NCCT only</td><td>nnU-Net with target-domain fine-tuning [[britt2026ncct#2]]</td><td>Held-out ISLES cases scored against the post-treatment infarct [[britt2026ncct#1]]</td><td class="num">Median Dice 0.20 [[britt2026ncct#1]]</td></tr>
+<tr><td>Zhang et al. 2025 (DINOv3)</td><td>NCCT slices</td><td>Frozen DINOv3 + decoder [[zhang2025dinov3stroke#4]]</td><td>Labelled 2D slices, random slice split [[zhang2025dinov3stroke#1]]</td><td class="num">Dice 0.5678 [[zhang2025dinov3stroke#2]]</td></tr>
+<tr><td>Shah &amp; Sundaresan 2026 (AsymFeX)</td><td>NCCT + perfusion maps [[shah2026asymfex#4]]</td><td>nnU-Net + asymmetry module [[shah2026asymfex#3]]</td><td>Re-annotated pre-treatment core and penumbra [[shah2026asymfex#1]]</td><td class="num">Different labels; not comparable</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section id="recent">
+<h2><span class="secno">4</span>Work after the challenge, and why its numbers don't compare</h2>
+<p>Martínez Cegarra et al. point out that leaderboard comparisons mix architecture with differences in preprocessing, training data and validation strategy [[cegarra2026isles#1]]. They retrained a single-stage nnU-Net, a cascade and SegFormer3D with shared preprocessing and splits. The cascade scored highest (Dice 0.224) and SegFormer3D lowest (Dice 0.163) [[cegarra2026isles#2|cegarra2026isles#3]]. They conclude that convolutional inductive bias still helps on a dataset this size and that cascades add little over a well-tuned single network [[cegarra2026isles#4]]. Their test set has only 15 patients [[cegarra2026isles#5]], and the two frameworks did not share all training settings [[cegarra2026isles#6]].</p>
+<p>Other recent papers report much higher numbers on ISLES'24 data, but each one changes the task:</p>
+<ul>
+<li><strong>Zhang et al. (DINOv3):</strong> randomly split the labelled 2D slices [[zhang2025dinov3stroke#1]] and reached a Dice of 0.5678 [[zhang2025dinov3stroke#2]].</li>
+<li><strong>AsymFeX:</strong> had a neuroradiologist redraw pre-treatment core and penumbra, because the released masks show the post-treatment state [[shah2026asymfex#1]]. Its authors also found that NCCT alone nearly fails at this time point [[shah2026asymfex#2]].</li>
+<li><strong>Britt et al.:</strong> evaluated an NCCT model against the actual post-treatment target and obtained a median Dice of 0.20 [[britt2026ncct#1]].</li>
+<li><strong>Amador et al.'s 4D CTP submission:</strong> reported a Dice of 0.20 and a lesion-wise F1 of 0.02 [[amador2025switch#2]].</li>
+</ul>
+<p>A 2026 multicentre study trained separate models for patients with and without recanalization. Its nnU-Net reached Dice 35.36% versus 15.73% for thresholds in the recanalized group [[ajnr2026recanalization#1]], on a cohort of 350 recanalized and 138 non-recanalized patients [[ajnr2026recanalization#2]]. The authors of nnU-Net Revisited warn more generally that many claimed gains in 3D segmentation disappear under proper baselines and validation [[isensee2024revisited#2]].</p>
+<p class="ours"><span class="ours-tag">Our reading</span> Only the challenge's hidden-test numbers measure the same thing. The hidden test set is no longer open for routine submissions, so a fair comparison has to train and evaluate every model on the 149 public cases, using identical cross-validation folds and preprocessing. Any comparison to the leaderboard should be labelled as approximate.</p>
+</section>
+
+<section id="temporal">
+<h2><span class="secno">5</span>Does temporal perfusion information help?</h2>
+<p>Single-cohort studies suggest it does. Robben et al. predicted the final infarct directly from native CTP plus time and treatment metadata, without deconvolution [[robben2020nativectp#1]]. Their ablation found that native CTP outperformed deconvolved inputs [[robben2020nativectp#2]], and they note that deconvolution is ill-posed given CTP's low signal-to-noise ratio [[robben2020nativectp#3]]. The study used 188 subjects [[robben2020nativectp#4]]. Amador et al. combined a U-Net with temporal convolutions over the 4D series [[amador2022spatiotemporal#2]]. In 10-fold cross-validation on 147 patients, their 3D+time model reached a Dice of 0.45, against 0.38 for a perfusion-map method [[amador2022spatiotemporal#1]]. PerfU-Net is motivated by large differences between vendors' perfusion software [[devries2023perfunet#1]]. It encodes the perfusion time series but decodes a static mask [[devries2023perfunet#2]], and it came close to methods that use vendor maps [[devries2023perfunet#3]].</p>
+<p>ISLES'24 points the other way. Models using standard perfusion maps consistently outperformed models trained on raw 4D CTP [[delarosa2024isles24#11]]. Models that extracted spatial features from 4D CTP outperformed those that modelled its full spatio-temporal structure [[delarosa2024isles24#12]]. The best raw-CTP entry picked a subset of time points and used a spatial nnU-Net, while models built to capture contrast dynamics consistently underperformed [[delarosa2024isles24#13]]. Amador's spatio-temporal ISLES'24 submission reached a Dice of 0.20 [[amador2025switch#2]]. The organisers still call for better spatio-temporal models [[delarosa2024isles24#14]].</p>
+<p class="ours"><span class="ours-tag">Our reading</span> The evidence conflicts. The positive results come from single cohorts with their own splits. The negative result comes from a two-centre benchmark in which CTP resolution differed between the centres [[delarosa2024isles24#24]]. Whether temporal modelling helps on ISLES'24 is therefore unresolved, which makes it a legitimate research question. It also means a negative result is a realistic outcome, and the project plan should allow for it.</p>
+</section>
+
+<section id="backbones">
+<h2><span class="secno">6</span>Segmentation backbones</h2>
+<p>nnU-Net configures preprocessing, architecture and training automatically for each new dataset [[isensee2021nnunet#1]]. Its authors' later benchmark found that state-of-the-art 3D segmentation still comes from CNN U-Nets inside the nnU-Net framework, scaled to modern hardware [[isensee2024revisited#1]]. Transformer alternatives include Swin UNETR, a shifted-window transformer encoder with a CNN decoder [[hatamizadeh2022swinunetr#1]], and SegFormer3D, which uses far fewer parameters than earlier models [[perera2024segformer3d#1]]. On ISLES'24, transformers have trailed: SegFormer3D trailed nnU-Net in a controlled comparison [[cegarra2026isles#4]], and the only pure-transformer challenge entry scored 0.068 [[cegarra2026isles#7]].</p>
+<p class="ours"><span class="ours-tag">Our reading</span> The baseline to beat is nnU-Net ResEnc with the Kurtlab preprocessing. Any new backbone should get the same preprocessing, so that it isn't penalised for a weaker pipeline.</p>
+</section>
+
+<section id="video">
+<h2><span class="secno">7</span>Video models and volumetric data</h2>
+<p>Several video encoders have properties suited to a small medical dataset:</p>
+<ul>
+<li><strong>VideoMAE:</strong> works on very small datasets of about 3–4k videos without extra data [[tong2022videomae#1]], helped by the redundancy across frames [[tong2022videomae#2]].</li>
+<li><strong>Video Swin:</strong> adds an inductive bias of locality in space and time [[liu2022videoswin#1|liu2022videoswin#2]].</li>
+<li><strong>TimeSformer:</strong> found that attending over time and space separately works best [[bertasius2021timesformer#1]].</li>
+<li><strong>V-JEPA:</strong> features perform well with a frozen backbone [[bardes2024vjepa#1]].</li>
+</ul>
+<p>Video models have already been applied to 3D medical volumes. SAM 2 uses a streaming memory over frames [[ravi2024sam2#1]] and treats a single image as a one-frame video [[ravi2024sam2#2]]. Medical SAM 2 recasts all 2D and 3D medical segmentation as video object tracking [[zhu2024medicalsam2#1]]. Its memory bank selects frames by confidence and dissimilarity, regardless of temporal order [[zhu2024medicalsam2#2]]. MedSAM2 fine-tuned SAM 2 on more than 455,000 3D image-mask pairs [[ma2025medsam2#1]]. Ke et al. found that natural-video pretraining improved the average performance of seven 3D models on two chest CT datasets [[ke2023videopretraining#1]], and that Kinetics pretraining helped more than in-domain CT pretraining [[ke2023videopretraining#2]].</p>
+<p class="ours"><span class="ours-tag">Our reading</span> There are three ways to map perfusion data onto a video model:</p>
+<ol class="ours-list">
+<li><strong>Axial slices as frames.</strong> This has direct precedent in Medical SAM 2, MedSAM2 and Ke et al.</li>
+<li><strong>CTP time points as frames.</strong> This is a true time axis and matches the native-CTP literature.</li>
+<li><strong>The four perfusion maps as frames.</strong> We found no study that supports this. The maps have no natural order, so an order-invariant design like Medical SAM 2's memory would be more defensible than one that assumes a sequence.</li>
+</ol>
+<p class="ours">The SAM family needs prompts, while ISLES'24 needs fully automatic prediction, so only the encoder and memory would carry over. Ke et al.'s evidence comes from chest CT, not brain perfusion.</p>
+</section>
+
+<section id="vlm">
+<h2><span class="secno">8</span>Foundation models and VLMs</h2>
+<p><strong>Segmentation foundation models.</strong> MedSAM reports that SAM struggles with weak boundaries and low contrast [[ma2024medsam#1]], and SAM-style models need points or boxes as prompts [[ma2024medsam#2]]. SAM-Med3D also works from 3D prompt points [[wang2023sammed3d#1]]. SAT notes that models transferred from natural images often segment 2D slices and fuse them afterwards [[zhao2023sat#1]]. Its text-prompted SAT-Pro model matches 72 dataset-specific nnU-Nets [[zhao2023sat#2]]. DINOv3 offers strong dense features from more than 1.6 billion images [[zhang2025dinov3stroke#3]], but its ISLES'24 result used a slice-level protocol [[zhang2025dinov3stroke#1]].</p>
+<p><strong>3D vision-language models.</strong> The available 3D CT VLMs cover other body regions or other tasks:</p>
+<ul>
+<li><strong>CT-CLIP:</strong> built on 25,692 non-contrast chest CT scans [[hamamci2024ctclip#1]].</li>
+<li><strong>Merlin:</strong> targets abdominal CT and learns from health records and radiology reports [[blankemeier2024merlin#1]]. Its authors note that 3D VLM evaluations elsewhere remain limited [[blankemeier2024merlin#2]].</li>
+<li><strong>M3D:</strong> its authors say 3D images are under-explored compared with 2D [[bai2024m3d#1]].</li>
+<li><strong>RadFM:</strong> its authors report that its reasoning stays general rather than specific to the case [[wu2023radfm#1]].</li>
+<li><strong>BrainGPT:</strong> the closest match. It was trained on 18,885 brain CT scans paired with reports, and it generates reports [[li2025braingpt#2]]. Its authors list scarce 3D data, generic base models and weak evaluation metrics as the constraints [[li2025braingpt#1]].</li>
+</ul>
+<p>A recent review of stroke outcome prediction notes a lack of suitable data for applying language models to this problem [[samak2024review#2]].</p>
+<p class="ours"><span class="ours-tag">Our reading</span> VLMs are a poor fit for the core task. ISLES'24 has no radiology reports, the target is a dense voxel-level prediction of future tissue, and we found no VLM trained on perfusion CT. Two uses remain defensible:</p>
+<ol class="ours-list">
+<li><strong>Text-conditioned clinical fusion.</strong> The challenge report leaves CLIP-style fusion of clinical data as an open question [[delarosa2024isles24#10]]. The CLIP-Driven Universal Model shows that text embeddings can condition a segmentation network [[liu2023clipdriven#1]], and Merlin shows health-record data used as supervision [[blankemeier2024merlin#1]]. We could write each patient's clinical variables (admission NIHSS, timings, demographics) as a sentence, embed it with a frozen text encoder, and inject it into the decoder. The key ablation is against plain concatenation. This directly targets the clinical-data gap.</li>
+<li><strong>Agentic quality control.</strong> A brain-CT language model of the BrainGPT kind [[li2025braingpt#2]] could describe or flag predictions for review. This would not raise Dice, so it is worth adding only if the course wants an agentic component.</li>
+</ol>
+</section>
+
+<section id="gaps">
+<h2><span class="secno">9</span>Synthesis: gaps this project can address</h2>
+<p class="ours"><span class="ours-tag">Our reading</span> The literature leaves four gaps that one semester can address.</p>
+<ol class="gaps">
+<li><strong>Controlled comparison.</strong> Architecture comparisons on ISLES'24 are confounded by protocol [[cegarra2026isles#1]], a general problem in 3D segmentation [[isensee2024revisited#2]]. Fixed folds and shared preprocessing are a contribution in themselves.</li>
+<li><strong>Temporal modelling.</strong> Single-cohort studies favour 4D CTP [[amador2022spatiotemporal#1]], while ISLES'24 found that explicit temporal models underperform [[delarosa2024isles24#13]]. A pretrained video encoder on native CTP time points tests this directly.</li>
+<li><strong>Input representation.</strong> Current entries stack inputs as channels, including 20 CTP time points [[delarosa2024isles24#22]]. We found no study that models the perfusion maps as a set or sequence.</li>
+<li><strong>Clinical fusion.</strong> Concatenating clinical variables did not help, and better fusion remains open [[delarosa2024isles24#9|delarosa2024isles24#10]].</li>
+</ol>
+<p class="ours">This suggests making native 4D CTP the primary input for a video encoder, with the perfusion maps treated as an ordered sequence as a secondary experiment. Text-conditioned clinical fusion can be added as an ablation. Everything should be measured against a reproduced nnU-Net ResEnc baseline under identical folds.</p>
+<p class="ours"><span class="ours-tag">Our reading</span> The literature also shapes how results should be reported. Use all four challenge metrics [[delarosa2024isles24#3]], because rCBF thresholds already match deep learning on volume and the networks' advantage is voxel-wise [[delarosa2024isles24#8]]. Stratify by infarct size at 5 mL, where every challenge method struggled [[delarosa2024isles24#17]], and by acquisition centre, since CTP resolution differs between the two sites [[delarosa2024isles24#24]]. Select checkpoints and windowing on validation folds only. The winning pipeline's preprocessing ablation was reported on its best fold [[ren2025isles24#3|ren2025isles24#4]], which is fine for a challenge entry but would inflate a controlled comparison. For broader background on deep-learning stroke outcome prediction, including functional outcomes, see the survey by Samak et al. [[samak2024review#1]].</p>
+</section>

@@ -1,0 +1,70 @@
+% Sections 4 (Proposed method) and 5 (Dataset and experiments) -- Jahid
+% Version 1: in line with the current Novelty section (perfusion maps presented to a video encoder as an ordered sequence).
+
+\section{Proposed method}
+\label{sec:method}
+
+\begin{figure}[t]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tikzpicture}[
+  box/.style={draw, rounded corners=2pt, align=center, font=\scriptsize, minimum height=1.05cm, text width=2.15cm, inner sep=2pt},
+  inclip/.style={box, fill=gray!8, double copy shadow={shadow xshift=2pt, shadow yshift=2pt, fill=gray!8, draw}},
+  arr/.style={-{Stealth[length=4pt]}, thick},
+  skip/.style={-{Stealth[length=4pt]}, thick, dashed}]
+  \node[inclip] (in) at (0,0) {\textbf{Input clip at slice $z$}\\4 frames: CBF, CBV, MTT, Tmax\\RGB $=$ slices $z{-}1, z, z{+}1$};
+  \node[box, fill=blue!6] (enc) at (2.85,0) {\textbf{VideoMAE ViT-B}\\Kinetics-400 init.\\frozen / LoRA / full FT};
+  \node[box, fill=blue!6] (pool) at (5.7,0) {\textbf{Attention pooling}\\over the 4 map tokens\\at each position};
+  \node[box] (stem) at (0,-1.6) {\textbf{CNN stem}\\full-resolution\\features};
+  \node[box, fill=blue!6] (dec) at (2.85,-1.6) {\textbf{Conv.\ decoder}\\upsamples fused\\features to 1:1};
+  \node[box, fill=red!6] (out) at (5.7,-1.6) {\textbf{Slice mask $\hat{y}_z$}\\stacked over $z$\\$\rightarrow$ 3D infarct mask};
+  \draw[arr] (in) -- (enc);
+  \draw[arr] (enc) -- (pool);
+  \draw[arr] (pool.south west) -- (dec.north east);
+  \draw[arr] (in) -- (stem);
+  \draw[skip] (stem) -- node[above, font=\tiny]{skip} (dec);
+  \draw[arr] (dec) -- (out);
+\end{tikzpicture}}
+\caption{Perfusion-as-video model. The four perfusion maps form the time axis of a short clip, so the video encoder models relations \emph{between} maps instead of mixing them as input channels.}
+\label{fig:method}
+\end{figure}
+
+\paragraph{Shared preprocessing and baseline.}
+All models use the organisers' co-registered images~\cite{delarosa2024isles24} and the preprocessing of the winning ISLES'24 entry. That pipeline applies SynthStrip skull stripping to the NCCT, propagates the mask to the other scans, and clips each input to a fixed window: CTA 0--90\,HU, CBF 0--35\,mL/100\,g/min, CBV 0--10\,mL/100\,g, MTT 0--20\,s and Tmax 0--7\,s~\cite{ren2025isles24}. The baseline is the same 3D full-resolution nnU-Net with the large residual encoder (ResEnc L) that won the challenge, with the inputs stacked as channels~\cite{ren2025isles24,isensee2024revisited}.
+
+\paragraph{Perfusion-as-video model.}
+Instead of stacking the perfusion maps as channels, we present them to a video encoder as an ordered clip (Fig.~\ref{fig:method}). For each axial slice $z$, the clip has four frames in a fixed order: CBF, CBV, MTT, Tmax. The three colour channels of each frame hold slices $z{-}1$, $z$ and $z{+}1$ of that map. This gives 2.5D context and matches the pretrained input format. The encoder is a ViT-B VideoMAE pretrained on Kinetics-400~\cite{tong2022videomae}. We chose it because VideoMAE learns well from very small video datasets. VideoMAE embeds $2{\times}16{\times}16$ space-time cubes~\cite{tong2022videomae}, so we repeat each map twice. Every cube then covers exactly one map, and the pretrained embedding is reused unchanged. A learned attention-pooling layer fuses the four map tokens at each spatial position. A convolutional decoder then upsamples the fused features to a per-slice infarct probability. The ViT works at 1/16 resolution, and small infarcts are where every ISLES'24 method struggled~\cite{delarosa2024isles24}, so the decoder also receives skip features from a light CNN stem applied to the full-resolution input. Slice predictions are stacked into a 3D mask. Training uses Dice plus cross-entropy loss, as in the top challenge entries~\cite{delarosa2024isles24}.
+
+\paragraph{Adaptation.}
+With only 149 training cases, we compare three ways of adapting the pretrained encoder:
+\begin{enumerate*}[label=(\roman*)]
+  \item freezing it, and training only the pooling layer and decoder;
+  \item LoRA, which keeps the pretrained weights frozen and trains low-rank updates in the attention layers~\cite{hu2022lora};
+  \item full fine-tuning.
+\end{enumerate*}
+Natural-video pretraining has improved 3D models on chest CT detection tasks~\cite{ke2023videopretraining}. Whether it also transfers to perfusion maps is part of what we test.
+
+\section{Dataset and experiments}
+\label{sec:experiments}
+
+\paragraph{Data and splits.}
+We use the 149 public ISLES'24 training cases from two centres. The 96-case test set is hidden~\cite{riedel2026isles24dataset}. The labels are infarct masks drawn on follow-up MRI acquired 2--9 days after treatment~\cite{riedel2026isles24dataset}. Only patients with successful recanalisation (TICI 2b/3) are included~\cite{delarosa2024isles24}. We run 5-fold cross-validation, with folds stratified by centre and by lesion volume ($<$5 vs.\ $\geq$5\,mL). Every method uses identical folds. Checkpoints and hyperparameters are chosen on a validation split inside each training fold, so the 149 out-of-fold predictions are never used for tuning.
+
+\paragraph{Baselines and metrics.}
+\begin{enumerate*}[label=(B\arabic*), start=0]
+  \item the clinical rCBF\,$<$\,30\% threshold, a baseline in the challenge itself~\cite{delarosa2024isles24};
+  \item our reproduction of nnU-Net ResEnc L on the same four maps as our model;
+  \item the same nnU-Net with CTA added, as in the winning configuration~\cite{ren2025isles24}.
+\end{enumerate*}
+The challenge's best hidden-test Dice of 0.285~\cite{delarosa2024isles24} is quoted for context only, because it comes from a different test set. We report the four challenge metrics using the official evaluation code: Dice, absolute volume difference (mL), lesion-wise F1 and absolute lesion count difference~\cite{delarosa2024isles24}. Each metric is reported overall, for infarcts under 5\,mL, and for each centre.
+
+\paragraph{Principal comparison and ablations.}
+The main comparison is B1 against the video model on identical inputs. We test it with a paired Wilcoxon signed-rank test on per-case Dice. Five ablations locate the source of any difference:
+\begin{enumerate*}[label=(A\arabic*)]
+  \item the same backbone with the maps fused as channels of a single frame, instead of as separate frames;
+  \item map order shuffled during training and testing, to test whether order carries information;
+  \item Kinetics initialisation vs.\ random initialisation;
+  \item frozen vs.\ LoRA vs.\ full fine-tuning;
+  \item NCCT and CTA added as extra frames.
+\end{enumerate*}
+If the video model only matches B1 when the order is shuffled (A2) or when the maps are fused as channels (A1), its benefit comes from pretraining rather than from sequence modelling.

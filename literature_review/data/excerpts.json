@@ -1,0 +1,2307 @@
+{
+ "generated": "2026-09-30",
+ "citation_counts_source": "Semantic Scholar API, retrieved 2026-09-30",
+ "verification": {
+  "method": "Verify every excerpt in excerpts.json occurs in its source text.\nLevels: 'exact' = substring of normalized text (NFKC, ligatures, de-hyphenated line breaks, collapsed whitespace);\n'whitespace' = identical after removing ALL whitespace (fixes PDF extraction spacing like 'o utcome');\n'FAIL' = not found.",
+  "counts": {
+   "exact": 119,
+   "whitespace": 9,
+   "FAIL": 0
+  },
+  "date": "2026-09-30"
+ },
+ "papers": [
+  {
+   "key": "winzeck2018isles",
+   "section": "A",
+   "inclusion_rule": "R1/R2: ISLES 2016-17 outcome-prediction benchmark",
+   "access": "full text (publisher PDF)",
+   "url": "https://doi.org/10.3389/fneur.2018.00679",
+   "title": "ISLES 2016 and 2017-Benchmarking Ischemic Stroke Lesion Outcome Prediction Based on Multispectral MRI",
+   "authors": [
+    "Stefan Winzeck",
+    "Arsany Hakim",
+    "Richard McKinley",
+    "José A. A. D. S. R. Pinto",
+    "Victor Alves",
+    "Carlos Silva",
+    "Maxim Pisov",
+    "Egor Krivov",
+    "Mikhail Belyaev",
+    "Miguel Monteiro",
+    "Arlindo Oliveira",
+    "Youngwon Choi",
+    "Myunghee Cho Paik",
+    "Yongchan Kwon",
+    "Hanbyul Lee",
+    "Beom Joon Kim",
+    "Joong-Ho Won",
+    "Mobarakol Islam",
+    "Hongliang Ren",
+    "David Robben",
+    "Paul Suetens",
+    "Enhao Gong",
+    "Yilin Niu",
+    "Junshen Xu",
+    "John M. Pauly",
+    "Christian Lucas",
+    "Mattias P. Heinrich",
+    "Luis C. Rivera",
+    "Laura S. Castillo",
+    "Laura A. Daza",
+    "Andrew L. Beers",
+    "Pablo Arbelaezs",
+    "Oskar Maier",
+    "Ken Chang",
+    "James M. Brown",
+    "Jayashree Kalpathy-Cramer",
+    "Greg Zaharchuk",
+    "Roland Wiest",
+    "Mauricio Reyes"
+   ],
+   "year": 2018,
+   "venue": "Frontiers in Neurology",
+   "volume": "9",
+   "issue": null,
+   "pages": "679",
+   "doi": "10.3389/fneur.2018.00679",
+   "arxiv": null,
+   "citations_s2": 172,
+   "text_file": "data/text/winzeck2018isles.txt",
+   "excerpts": [
+    {
+     "id": "winzeck2018isles#1",
+     "loc": "p1",
+     "quote": "ISLES 2016 and 2017 focused on lesion outcome prediction after ischemic stroke",
+     "topic": "benchmark history",
+     "verified": "exact"
+    },
+    {
+     "id": "winzeck2018isles#2",
+     "loc": "p1",
+     "quote": "Top ranked teams almost always employed deep learning tools, which were predominately convolutional neural networks (CNNs). Despite the great efforts, lesion outcome prediction persists challenging.",
+     "topic": "benchmark history",
+     "verified": "whitespace"
+    }
+   ]
+  },
+  {
+   "key": "hakim2021isles18",
+   "section": "A",
+   "inclusion_rule": "R2: ISLES 2018 CTP core benchmark",
+   "access": "full text (PMC XML)",
+   "url": "https://doi.org/10.1161/STROKEAHA.120.030696",
+   "title": "Predicting Infarct Core From Computed Tomography Perfusion in Acute Ischemia With Machine Learning: Lessons From the ISLES Challenge",
+   "authors": [
+    "Arsany Hakim",
+    "Søren Christensen",
+    "Stefan Winzeck",
+    "Maarten G. Lansberg",
+    "Mark W. Parsons",
+    "Christian Lucas",
+    "David Robben",
+    "Roland Wiest",
+    "Mauricio Reyes",
+    "Greg Zaharchuk"
+   ],
+   "year": 2021,
+   "venue": "Stroke",
+   "volume": "52",
+   "issue": "7",
+   "pages": "2328-2337",
+   "doi": "10.1161/STROKEAHA.120.030696",
+   "arxiv": null,
+   "citations_s2": 70,
+   "text_file": "data/text/hakim2021isles18.txt",
+   "excerpts": [
+    {
+     "id": "hakim2021isles18#1",
+     "loc": "Abstract",
+     "quote": "the aim of the ISLES 2018 was to predict the infarction core based on CTP imaging from acute ischemic stroke patients, using DWI-based manual segmentation from magnetic resonance imaging (MRI) acquired shortly after.",
+     "topic": "benchmark history",
+     "verified": "exact"
+    },
+    {
+     "id": "hakim2021isles18#2",
+     "loc": "Abstract",
+     "quote": "Based on the ranking criteria, the top team’s algorithm demonstrated for average Dice score coefficient and average absolute volume difference 0.51 and 10.2 mL, respectively, outperforming the conventional threshold-based method (dice score coefficient, 0.3; volume difference, 15.3).",
+     "topic": "DL vs thresholds",
+     "verified": "exact"
+    },
+    {
+     "id": "hakim2021isles18#3",
+     "loc": "Abstract",
+     "quote": "Diverse algorithms were used, almost all based on deep learning, with top-ranked approaches making use of the raw perfusion data as well as methods to synthetically generate complementary information to boost prediction performance.",
+     "topic": "native CTP",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "hernandez2022isles22",
+   "section": "A",
+   "inclusion_rule": "R1 (context): ISLES 2022 MRI segmentation dataset",
+   "access": "full text (arXiv PDF)",
+   "url": "https://doi.org/10.1038/s41597-022-01875-5",
+   "title": "ISLES 2022: A multi-center magnetic resonance imaging stroke lesion segmentation dataset",
+   "authors": [
+    "Moritz R. Hernandez Petzsche",
+    "Ezequiel de la Rosa",
+    "Uta Hanning",
+    "Roland Wiest",
+    "Waldo Valenzuela",
+    "Mauricio Reyes",
+    "Maria Meyer",
+    "Sook-Lei Liew",
+    "Florian Kofler",
+    "Ivan Ezhov",
+    "David Robben",
+    "Alexandre Hutton",
+    "Tassilo Friedrich",
+    "Teresa Zarth",
+    "Johannes Bürkle",
+    "The Anh Baran",
+    "Björn Menze",
+    "Gabriel Broocks",
+    "Lukas Meyer",
+    "Claus Zimmer",
+    "Tobias Boeckh-Behrens",
+    "Maria Berndt",
+    "Benno Ikenberg",
+    "Benedikt Wiestler",
+    "Jan S. Kirschke"
+   ],
+   "year": 2022,
+   "venue": "Scientific Data",
+   "volume": "9",
+   "issue": "1",
+   "pages": "762",
+   "doi": "10.1038/s41597-022-01875-5",
+   "arxiv": "2206.06694",
+   "citations_s2": 275,
+   "text_file": "data/text/hernandez2022isles22.txt",
+   "excerpts": [
+    {
+     "id": "hernandez2022isles22#1",
+     "loc": "p1",
+     "quote": "This dataset comprises 400 multi-vendor MRI cases with high variability in stroke lesion size, quantity and location.",
+     "topic": "benchmark history",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "delarosa2025deepisles",
+   "section": "A",
+   "inclusion_rule": "R1: DeepISLES generated the ISLES'24 label masks",
+   "access": "full text (publisher PDF)",
+   "url": "https://doi.org/10.1038/s41467-025-62373-x",
+   "title": "DeepISLES: a clinically validated ischemic stroke segmentation model from the ISLES'22 challenge",
+   "authors": [
+    "Ezequiel de la Rosa",
+    "Mauricio Reyes",
+    "Sook-Lei Liew",
+    "Alexandre Hutton",
+    "Roland Wiest",
+    "Johannes Kaesmacher",
+    "Uta Hanning",
+    "Arsany Hakim",
+    "Richard Zubal",
+    "Waldo Valenzuela",
+    "David Robben",
+    "Diana M. Sima",
+    "Vincenzo Anania",
+    "Arne Brys",
+    "James A. Meakin",
+    "Anne Mickan",
+    "Gabriel Broocks",
+    "Christian Heitkamp",
+    "Shengbo Gao",
+    "Kongming Liang",
+    "Ziji Zhang",
+    "Md Mahfuzur Rahman Siddiquee",
+    "Andriy Myronenko",
+    "Pooya Ashtari",
+    "Sabine Van Huffel",
+    "Hyunsu Jeong",
+    "Chiho Yoon",
+    "Chulhong Kim",
+    "Jiayu Huo",
+    "Sebastien Ourselin",
+    "Rachel Sparks",
+    "Albert Clèrigues",
+    "Arnau Oliver",
+    "Xavier Lladó",
+    "Liam Chalcroft",
+    "Ioannis Pappas",
+    "Jeroen Bertels",
+    "Ewout Heylen",
+    "Juliette Moreau",
+    "Nima Hatami",
+    "Carole Frindel",
+    "Abdul Qayyum",
+    "Moona Mazher",
+    "Domenec Puig",
+    "Shao-Chieh Lin",
+    "Chun-Jung Juan",
+    "Tianxi Hu",
+    "Lyndon Boone",
+    "Maged Goubran",
+    "Yi-Jui Liu",
+    "Susanne Wegener",
+    "Florian Kofler",
+    "Ivan Ezhov",
+    "Suprosanna Shit",
+    "Moritz R. Hernandez Petzsche",
+    "Michael Müller",
+    "Bjoern Menze",
+    "Jan S. Kirschke",
+    "Benedikt Wiestler"
+   ],
+   "year": 2025,
+   "venue": "Nature Communications",
+   "volume": "16",
+   "issue": "1",
+   "pages": "7357",
+   "doi": "10.1038/s41467-025-62373-x",
+   "arxiv": "2403.19425",
+   "citations_s2": 33,
+   "text_file": "data/text/delarosa2025deepisles.txt",
+   "excerpts": [
+    {
+     "id": "delarosa2025deepisles#1",
+     "loc": "p1",
+     "quote": "We present DeepISLES, a robust ensemble algorithm developed from top submissions to the 2022 Ischemic Stroke Lesion Segmentation challenge we organized.",
+     "topic": "benchmark history",
+     "verified": "whitespace"
+    },
+    {
+     "id": "delarosa2025deepisles#2",
+     "loc": "p1",
+     "quote": "Neuroradiologists prefer DeepISLES’ segmentations over manual annotations in a Turing-like test.",
+     "topic": "labels",
+     "verified": "whitespace"
+    }
+   ]
+  },
+  {
+   "key": "delarosa2024isles24",
+   "section": "A",
+   "inclusion_rule": "R1: official ISLES'24 challenge report",
+   "access": "full text (arXiv PDF)",
+   "url": "https://arxiv.org/abs/2408.10966",
+   "title": "ISLES'24: Final Infarct Prediction with Multimodal Imaging and Clinical Data. Where Do We Stand?",
+   "authors": [
+    "Ezequiel de la Rosa",
+    "Ruisheng Su",
+    "Mauricio Reyes",
+    "E. Riedel",
+    "H. Baazaoui",
+    "Roland Wiest",
+    "F. Kofler",
+    "Kai-Yuan Yang",
+    "D. Robben",
+    "Mahsa Mojtahedi",
+    "Laura van Poppel",
+    "L. de Vries",
+    "Anthony J. Winder",
+    "Kimberly Amador",
+    "Nils D. Forkert",
+    "Gyeongyeon Hwang",
+    "Ji-Woo Song",
+    "Dohyun Kim",
+    "Eneko Urunuela",
+    "Annabella Bregazzi",
+    "M. Wilms",
+    "Hyun Yang",
+    "Jin Tae Kwak",
+    "Su-Min Jung",
+    "Luan Matheus Trindade Dalmazo",
+    "Kumaradevan Punithakumar",
+    "Moona Mazher",
+    "Abdul Qayyum",
+    "Steven Niederer",
+    "Jacob Idoko",
+    "M. Bento",
+    "Gouri Ginde",
+    "Tian-Yi Ren",
+    "Juampablo Heras Rivera",
+    "Mehmet Kurt",
+    "Carole Frindel",
+    "S. Wegener",
+    "J. Kirschke",
+    "Benedikt Wiestler",
+    "Bjoern H Menze"
+   ],
+   "year": 2024,
+   "venue": "arXiv preprint arXiv:2408.10966",
+   "volume": null,
+   "issue": null,
+   "pages": null,
+   "doi": null,
+   "arxiv": "2408.10966",
+   "citations_s2": 7,
+   "text_file": "data/text/delarosa2024isles24.txt",
+   "excerpts": [
+    {
+     "id": "delarosa2024isles24#1",
+     "loc": "p1",
+     "quote": "This work introduces the Ischemic Stroke Lesion Segmentation (ISLES) 2024 challenge, which focuses on the prediction of final infarct volumes from pre-interventional acute stroke imaging and clinical data.",
+     "topic": "task",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#2",
+     "loc": "p2",
+     "quote": "On the hidden test set (N = 98), the top-performing model, a multimodal nnU-Net-based architecture, achieved a Dice score of 0.285 ± 0.213 and an absolute volume difference of 21.2 ± 37.2 mL, underlining the significant challenges posed by this task and the need for further advances in multimodal learning.",
+     "topic": "SOTA",
+     "verified": "whitespace"
+    },
+    {
+     "id": "delarosa2024isles24#3",
+     "loc": "p6",
+     "quote": "The four following segmentation and task-specific, clinically relevant metrics are used: i) Dice Similarity Coefficient",
+     "topic": "metrics",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#4",
+     "loc": "p7",
+     "quote": "All three top-performing methods are based on nnU-Net [75].",
+     "topic": "SOTA",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#5",
+     "loc": "p7",
+     "quote": "Unlike the winning team Kurtlab, the second-ranked team AMC-Axolots employed a cascaded nnU-Net approach rather than a single-model strategy.",
+     "topic": "SOTA",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#6",
+     "loc": "p7",
+     "quote": "Notably, the third-ranked team, Ninjas, relied exclusively on the 4D CTP perfusion modality and achieved strong individual-metric performance for Dice and absolute lesion count difference, ranking second and first, respectively.",
+     "topic": "native CTP",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#7",
+     "loc": "p17",
+     "quote": "Notably, the first- and second-ranked teams integrated all available imaging modalities—excluding 4D CTP—and outperformed nnU-Net-based models relying solely on single modalities, such as teams utilizing only CTP or CTA data.",
+     "topic": "modalities",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#8",
+     "loc": "p17",
+     "quote": "Notably, the perfusion-based baseline models using rCBF achieved infarct volume estimates comparable to those of the best-performing deep learning methods. However, deep learning approaches outperformed in voxel-wise metrics, demonstrating superior spatial localization and identification of infarction.",
+     "topic": "DL vs thresholds",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#9",
+     "loc": "p17",
+     "quote": "Although one team incorporated clinically relevant variables -such as stroke severity scores at admission, patient demographics, clinical history, and critical time metrics- there was no demonstrated tangible improvement in segmentation performance through the integration of these features.",
+     "topic": "clinical data",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#10",
+     "loc": "p17",
+     "quote": "A standard concatenation-based fusion strategy was used, which proved insufficient to capture the complex relationships between imaging and clinical variables. Whether more sophisticated feature fusion strategies, such as attention-based mechanisms, cross- and multi-modal techniques like CLIP [93], or advanced tabular data architectures such as TabFPN [94], can enhance segmentation performance, remains an open question.",
+     "topic": "clinical data / VLM",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#11",
+     "loc": "p17",
+     "quote": "However, our challenge benchmark reveals two key findings: ( i) models utilizing standard deconvolution-derived perfusion maps consistently outperform those trained directly on raw 4D CTP series, and ( ii) models that extract spatial features from",
+     "topic": "native CTP",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#12",
+     "loc": "p18",
+     "quote": "the 4D CTP data achieve superior performance compared to those attempting to leverage the full spatiotemporal nature of the modality.",
+     "topic": "native CTP",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#13",
+     "loc": "p18",
+     "quote": "Specifically, the top-performing model utilizing raw 4D CTP data (team Ninjas) selected a subset of meaningful CTP timepoints and applied a spatial convolutional nnU-Net architecture, whereas models designed to explicitly capture temporally-encoded contrast propagation dynamics consistently underperformed.",
+     "topic": "native CTP",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#14",
+     "loc": "p18",
+     "quote": "We thus advocate for the development of advanced spatiotemporal models",
+     "topic": "native CTP",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#15",
+     "loc": "p17",
+     "quote": "Distinct infarct growth phenotypes—ranging from slow to fast progressors—have been identified, influenced by patient-specific pathophysiological variables, particularly the status of leptomeningeal collateral circulation, which sustains residual perfusion and limits infarct expansion [15, 16, 91].",
+     "topic": "difficulty",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#16",
+     "loc": "p17",
+     "quote": "Moreover, technical challenges related to data preprocessing—such as image registration and interpolation across differing image spaces, resolutions, and modalities (e.g., acute CT and follow-up MRI)—further hinder accurate lesion segmentation.",
+     "topic": "difficulty",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#17",
+     "loc": "p13",
+     "quote": "When focusing on cases with small infarcts (infarct< 5 mL,N = 25), all methods show limited volumetric agreement (Pearsonr< 0.4).",
+     "topic": "difficulty",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#18",
+     "loc": "p13",
+     "quote": "Methods based solely on CTP may be more sensitive to differences in acquisition protocols, resulting in decreased generalizability.",
+     "topic": "generalization",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#19",
+     "loc": "p18",
+     "quote": "As a more standardized and higher-resolution modality, NCCT offers a stable input source that may reduce model sensitivity to domain shifts in CTP data.",
+     "topic": "generalization",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#20",
+     "loc": "p18",
+     "quote": "Furthermore, the inclusion criteria of the ISLES’24 dataset were restricted to patients with favorable recanalization outcomes (i.e., thrombolysis in cerebral infarction -TICI- scores 2B and 3).",
+     "topic": "dataset",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#21",
+     "loc": "p9",
+     "quote": "The solution aimed to predict the final infarct by leveraging baseline infarct and penumbra masks derived from NCCT and CTA scans, as well as CTP perfusion maps (CBF, CBV, MTT, and TMAX).",
+     "topic": "SOTA",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#22",
+     "loc": "p9",
+     "quote": "A sequence of 20 time points centered around the peak contrast concentration was extracted to form a 20-channel input.",
+     "topic": "native CTP",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#23",
+     "loc": "p5",
+     "quote": "Lesion masks are derived from the follow-up MRI using DeepISLES [14].",
+     "topic": "labels",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#24",
+     "loc": "p13",
+     "quote": "While Center #1 provides higher resolution NCCT images, its CTP acquisitions exhibit consistently a lower resolution compared to Center #2.",
+     "topic": "generalization",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#25",
+     "loc": "p4",
+     "quote": "Moreover, the clinical data contains demographics (age, sex, etc.), patient history, admission scores (e.g., admission NIHSS), and clinical outcomes (e.g., 3month mRS).",
+     "topic": "clinical data",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#26",
+     "loc": "p5",
+     "quote": "The 4D CTP series are motion-corrected through image co-registration and temporally resampled at 1 frame/second.",
+     "topic": "dataset",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#27",
+     "loc": "p9",
+     "quote": "Training was performed with a batch size of 2 and a patch size of 28 × 256 × 192 on two NVIDIA A6000 GPUs.",
+     "topic": "compute",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#28",
+     "loc": "p9",
+     "quote": "All scans underwent preprocessing, including voxel value clipping to specific ranges (NCCT [0, 100] Hounsfield units, CTA [0, 200] Hounsfield units, CBF [0, 400] mL/100mL/min, CBV [0, 400] mL/100mL, MTT [0, 20] s, TMAX [0, 20] s), background value setting to zero, and skull stripping.",
+     "topic": "preprocessing",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#29",
+     "loc": "p5",
+     "quote": "For anonymization purposes, all scans are defaced based on brain and face masks obtained with TotalSegmentator [56], and the clinical tabular data is de-identified by adding ± 5% random noise to the laboratory variables.",
+     "topic": "clinical data",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#30",
+     "loc": "p17",
+     "quote": "While acute CT imaging is widely accessible and routinely used in clinical practice, it is inherently less sensitive than the gold-standard DWI and is often affected by artifacts (e.g., streak artifacts) and a low signal-to-noise ratio.",
+     "topic": "difficulty",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#31",
+     "loc": "p13",
+     "quote": "(i) core tissue, defined as regions with rCBF< 30%; (ii) hypoperfused tissue, defined as regions with Tmax> 6 s",
+     "topic": "clinical standard",
+     "verified": "exact"
+    },
+    {
+     "id": "delarosa2024isles24#32",
+     "loc": "p5",
+     "quote": "The train (test) set contains N = 100 (N = 50) scans from the University Hospital of Munich and N = 50 (N = 48) scans from the University Hospital of Zurich.",
+     "topic": "dataset",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "riedel2026isles24dataset",
+   "section": "A",
+   "inclusion_rule": "R1: official ISLES'24 dataset descriptor",
+   "access": "full text of arXiv preprint (2408.11142); published version paywalled",
+   "url": "https://doi.org/10.1148/ryai.250603",
+   "title": "The Ischemic Stroke Lesion Segmentation Challenge (ISLES)’24 Dataset: A Multimodal Stroke Imaging Dataset with Hyperacute CT, Acute Postinterventional MRI, and 3-month Clinical Outcomes",
+   "authors": [
+    "Evamaria Olga Riedel",
+    "Ezequiel de la Rosa",
+    "The Anh Baran",
+    "Moritz Hernandez Petzsche",
+    "Hakim Baazaoui",
+    "Kaiyuan Yang",
+    "Fabio Antonio Musio",
+    "Houjing Huang",
+    "David Robben",
+    "Joaquin Oscar Seia",
+    "Roland Wiest",
+    "Mauricio Reyes",
+    "Ruisheng Su",
+    "Claus Zimmer",
+    "Tobias Boeckh-Behrens",
+    "Maria Berndt",
+    "Bjoern Menze",
+    "Daniel Rueckert",
+    "Benedikt Wiestler",
+    "Susanne Wegener",
+    "Jan Stefan Kirschke"
+   ],
+   "year": 2026,
+   "venue": "Radiology: Artificial Intelligence",
+   "volume": "8",
+   "issue": "3",
+   "pages": "e250603",
+   "doi": "10.1148/ryai.250603",
+   "arxiv": null,
+   "citations_s2": 3,
+   "text_file": "data/text/riedel2024isles24arxiv.txt",
+   "excerpts": [
+    {
+     "id": "riedel2026isles24dataset#1",
+     "loc": "p4 (arXiv v2)",
+     "quote": "Data preparation, which is briefly illustrated in Figure 1 and described in detail in the methods section, led to a dataset of 245 cases divided into a publicly available train set (n = 149) and - to ensure fair and continuous evaluation of machine learning algorithms - a hidden test set (n = 96).",
+     "topic": "dataset",
+     "verified": "exact"
+    },
+    {
+     "id": "riedel2026isles24dataset#2",
+     "loc": "p4 (arXiv v2)",
+     "quote": "by providing longitudinal imaging at two time points: (sub-)acute CT imaging before therapy and follow-up MRI 2-9 days after intracranial reperfusion therapy.",
+     "topic": "dataset",
+     "verified": "exact"
+    },
+    {
+     "id": "riedel2026isles24dataset#3",
+     "loc": "p3 (arXiv v2)",
+     "quote": "The current clinical standard for estimating perfusion volumes involves deconvolution analysis, which entails generating perfusion maps through perfusion CT and MR deconvolution and applying thresholds to these maps 10.",
+     "topic": "clinical standard",
+     "verified": "exact"
+    },
+    {
+     "id": "riedel2026isles24dataset#4",
+     "loc": "p4 (arXiv v2)",
+     "quote": "Complemented is longitudinal clinical data up to a three-month outcome, which enables taking into account patient-specific characteristics like demographics, pre-existing risk factors, medication, and the type of referral or intervention times.",
+     "topic": "clinical data",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "ren2025isles24",
+   "section": "B",
+   "inclusion_rule": "R1: winning ISLES'24 method (Kurtlab)",
+   "access": "full text (arXiv PDF)",
+   "url": "https://arxiv.org/abs/2505.18424",
+   "title": "How We Won the ISLES'24 Challenge by Preprocessing",
+   "authors": [
+    "Tian-Yi Ren",
+    "Juampablo Heras Rivera",
+    "Hitender K. Oswal",
+    "Yutong Pan",
+    "William Henry",
+    "Sophie Walters",
+    "Mehmet Kurt"
+   ],
+   "year": 2025,
+   "venue": "arXiv preprint arXiv:2505.18424 (states PMLR 2025)",
+   "volume": null,
+   "issue": null,
+   "pages": null,
+   "doi": "10.48550/arXiv.2505.18424",
+   "arxiv": "2505.18424",
+   "citations_s2": 6,
+   "text_file": "data/text/ren2025isles24.txt",
+   "excerpts": [
+    {
+     "id": "ren2025isles24#1",
+     "loc": "p1",
+     "quote": "Our winning solution shows that a carefully designed preprocessing pipeline including deep-learning-based skull stripping and custom intensity windowing is beneficial for accurate segmentation.",
+     "topic": "preprocessing",
+     "verified": "exact"
+    },
+    {
+     "id": "ren2025isles24#2",
+     "loc": "p2",
+     "quote": "For our submission, we used a 3D large residual encoder nnUNet, referred to as “nnU-Net ResEnc L” in the nnU-Net documentation.",
+     "topic": "SOTA",
+     "verified": "exact"
+    },
+    {
+     "id": "ren2025isles24#3",
+     "loc": "p3",
+     "quote": "On this fold, the standard pipeline with only Z-score normalization and [1,99] percentile windowing achieved a Dice score of 21.8%, custom windowing alone improved performance to 31.0%, and our submission combining custom windowing with Z-score normalization further increased the validation Dice score to 31.8%.",
+     "topic": "preprocessing",
+     "verified": "exact"
+    },
+    {
+     "id": "ren2025isles24#4",
+     "loc": "p3",
+     "quote": "Results 10-fold cross validation was performed, and the fold with the highest validation Dice score was selected for submission.",
+     "topic": "protocol",
+     "verified": "exact"
+    },
+    {
+     "id": "ren2025isles24#5",
+     "loc": "p4",
+     "quote": "Kurtlab (Ours) 28.50 (21.27) 21.23 (37.22) 14.39 (21.19) 7.18 (7.67) AMC-Axolotls 26.27 (24.73) 21.31 (35.23) 14.94 (25.12) 7.66 (7.94) Ninjas 25.46 (19.08) 26.29 (39.73) 9.92 (13.46) 5.98 (6.46)",
+     "topic": "SOTA",
+     "verified": "exact"
+    },
+    {
+     "id": "ren2025isles24#6",
+     "loc": "p3",
+     "quote": "Table 1: Windowing ranges for each CT modality used as input to the nnU-Net segmentation model for the final submission to the ISLES’24 challenge.",
+     "topic": "SOTA",
+     "verified": "exact"
+    },
+    {
+     "id": "ren2025isles24#7",
+     "loc": "p3",
+     "quote": "Modality CTA (HU) CBF (mL/100g/min) CBV (mL/100g) MTT (s) Tmax (s) Window Range (0, 90) (0, 35) (0, 10) (0, 20) (0, 7)",
+     "topic": "SOTA",
+     "verified": "exact"
+    },
+    {
+     "id": "ren2025isles24#8",
+     "loc": "p2",
+     "quote": "First, we applied SynthStrip on the non-contrast CT (NCCT) scans to obtain a brain masks.",
+     "topic": "preprocessing",
+     "verified": "exact"
+    },
+    {
+     "id": "ren2025isles24#9",
+     "loc": "p2",
+     "quote": "Then, we applied this brain mask to the other co-registered scans (CTP, CTA, etc.) to obtain skull-stripped versions of the data.",
+     "topic": "preprocessing",
+     "verified": "exact"
+    },
+    {
+     "id": "ren2025isles24#10",
+     "loc": "p3",
+     "quote": "When clinical windowing guidelines were available in the literature, they informed the initial settings, with empirical adjustments made to optimize model performance.",
+     "topic": "preprocessing",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "mojtahedi2025switch",
+   "section": "B",
+   "inclusion_rule": "R1: AMC-Axolotls (2nd place) method paper",
+   "access": "abstract only (Amsterdam UMC repository page; PDF blocked)",
+   "url": "https://doi.org/10.1007/978-3-031-81101-2_10",
+   "title": "Utilizing Baseline Infarct and Penumbra Masks to Improve NCCT and CTA Based Final Infarct Prediction",
+   "authors": [
+    "Mahsa Mojtahedi",
+    "Laura van Poppel",
+    "Lucas de Vries",
+    "Bart Emmer",
+    "Charles Majoie",
+    "Henk Marquering"
+   ],
+   "year": 2025,
+   "venue": "Lecture Notes in Computer Science",
+   "volume": null,
+   "issue": null,
+   "pages": "89-94",
+   "doi": "10.1007/978-3-031-81101-2_10",
+   "arxiv": null,
+   "citations_s2": 0,
+   "text_file": "data/text/mojtahedi2025switch.txt",
+   "excerpts": [
+    {
+     "id": "mojtahedi2025switch#1",
+     "loc": "Abstract",
+     "quote": "Using the nnU-Net framework, we observe a 16% improvement in Dice when baseline lesion masks are added in the absence of CTP. However, when CTP maps are included, the addition of baseline lesion masks is no longer beneficial.",
+     "topic": "modalities",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "amador2025switch",
+   "section": "B",
+   "inclusion_rule": "R1: ISLES'24 spatio-temporal 4D CTP submission",
+   "access": "abstract only (authors' GitHub README; chapter paywalled)",
+   "url": "https://doi.org/10.1007/978-3-031-81101-2_9",
+   "title": "Spatio-Temporal Deep Learning for Final Infarct Prediction Using Acute Stroke CT Perfusion Data",
+   "authors": [
+    "Kimberly Amador",
+    "Anthony J. Winder",
+    "Nils D. Forkert"
+   ],
+   "year": 2025,
+   "venue": "Lecture Notes in Computer Science",
+   "volume": null,
+   "issue": null,
+   "pages": "83-88",
+   "doi": "10.1007/978-3-031-81101-2_9",
+   "arxiv": null,
+   "citations_s2": 0,
+   "text_file": "data/text/amador2025switch.txt",
+   "excerpts": [
+    {
+     "id": "amador2025switch#1",
+     "loc": "Abstract",
+     "quote": "The model integrates a shared-weight convolutional neural network (CNN) encoder, a Transformer encoder, and a CNN decoder to capture both spatial and temporal dependencies within the data. We evaluated this approach on a multicenter dataset of 143 patients from the ISLES 2024 challenge.",
+     "topic": "native CTP",
+     "verified": "exact"
+    },
+    {
+     "id": "amador2025switch#2",
+     "loc": "Abstract",
+     "quote": "The results reveal a Dice score of 0.20, an absolute volume difference of 17 ml, a lesion count difference of 19, and a lesion-wise F1-Score of 0.02, underscoring both the potential and challenges of directly utilizing 4D CTP data for final infarct prediction.",
+     "topic": "native CTP",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "cegarra2026isles",
+   "section": "B",
+   "inclusion_rule": "R1: controlled CNN vs Transformer comparison on ISLES'24",
+   "access": "full text (PMC XML)",
+   "url": "https://doi.org/10.3390/s26165021",
+   "title": "Automatic Segmentation of Ischaemic Stroke Lesions Using Transformers and Convolutional Neural Networks Applied to Multimodal Neuroimaging",
+   "authors": [
+    "Pablo Martínez Cegarra",
+    "Juan Francisco Zapata Pérez",
+    "Juan Martínez-Alajarín"
+   ],
+   "year": 2026,
+   "venue": "Sensors",
+   "volume": "26",
+   "issue": "16",
+   "pages": "5021",
+   "doi": "10.3390/s26165021",
+   "arxiv": null,
+   "citations_s2": 0,
+   "text_file": "data/text/cegarra2026isles.txt",
+   "excerpts": [
+    {
+     "id": "cegarra2026isles#1",
+     "loc": "Introduction",
+     "quote": "The main limitation of drawing conclusions from comparisons derived from the challenge leaderboard is that the results of the competing strategies are subject to confounding variables such as differences in preprocessing protocols, training data volume, and cross-validation strategy, making it difficult to attribute performance gaps to architectural choice alone.",
+     "topic": "protocol",
+     "verified": "exact"
+    },
+    {
+     "id": "cegarra2026isles#2",
+     "loc": "Abstract",
+     "quote": "The cascade model achieved the highest Dice Similarity Coefficient (0.224).",
+     "topic": "architectures",
+     "verified": "exact"
+    },
+    {
+     "id": "cegarra2026isles#3",
+     "loc": "Abstract",
+     "quote": "On the other hand, SegFormer3D returned the lowest overall metrics (DSC 0.163, AVD 27.28 mL, F1 2.30%).",
+     "topic": "architectures",
+     "verified": "exact"
+    },
+    {
+     "id": "cegarra2026isles#4",
+     "loc": "Abstract",
+     "quote": "Within these limits, the local inductive bias of the convolutional models retained an empirical advantage over the single Transformer evaluated when processing this moderately sized neuroimaging dataset, and complex cascade topologies offered only marginal gains compared with a well-calibrated single-stage network.",
+     "topic": "architectures",
+     "verified": "exact"
+    },
+    {
+     "id": "cegarra2026isles#5",
+     "loc": "Results",
+     "quote": "This section presents the performance results of each of the trained models when evaluated on the held-out test set of 15 patients.",
+     "topic": "protocol",
+     "verified": "exact"
+    },
+    {
+     "id": "cegarra2026isles#6",
+     "loc": "Methods",
+     "quote": "It must be stated explicitly that the two frameworks used (nnU-Net for M1 and M2, MONAI/SegFormer3D for M3) do not share every training-time setting",
+     "topic": "protocol",
+     "verified": "exact"
+    },
+    {
+     "id": "cegarra2026isles#7",
+     "loc": "Related work",
+     "quote": "the only pure Transformer entry (QuiiL, using the MoReT architecture) obtained 0.068 [7].",
+     "topic": "architectures",
+     "verified": "exact"
+    },
+    {
+     "id": "cegarra2026isles#8",
+     "loc": "Abstract",
+     "quote": "The first of these is a single-stage 5-channel nnU-Net, followed by a two-stage cascaded nnU-Net (2 and 7 channels) and a lightweight Transformer (SegFormer3D).",
+     "topic": "architectures",
+     "verified": "exact"
+    },
+    {
+     "id": "cegarra2026isles#9",
+     "loc": "Introduction",
+     "quote": "(i) a single-stage nnU-Net approach replicating the preprocessing pipeline of the challenge-winning team under controlled experimental conditions, using 5 input channels (CTA, CBF, CBV, MTT, Tmax)",
+     "topic": "architectures",
+     "verified": "exact"
+    },
+    {
+     "id": "cegarra2026isles#10",
+     "loc": "Methods",
+     "quote": "First, morphological skull-stripping is applied to the NCCT of each patient by thresholding to (0,120) HU, binary erosion (3 iterations), selection of the largest 3D connected component with the cc3d library [42], dilation (5 iterations) and filling of internal holes.",
+     "topic": "preprocessing",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "ajnr2026recanalization",
+   "section": "B",
+   "inclusion_rule": "R2: recent CTP-map nnU-Net outcome model, reperfusion-specific",
+   "access": "abstract only (PubMed)",
+   "url": "https://doi.org/10.3174/ajnr.A9016",
+   "title": "Multimodal CT Perfusion–Based Deep Learning for Predicting Stroke Lesion Outcomes in Complete and No Recanalization Scenarios",
+   "authors": [
+    "Hongxi Yang",
+    "Yasmeen George",
+    "Deval Mehta",
+    "Longting Lin",
+    "Chushuang Chen",
+    "David Yang",
+    "Jiacheng Sun",
+    "Kin Fung Lau",
+    "Chris Bain",
+    "Qing Yang",
+    "Mark W. Parsons",
+    "Zongyuan Ge"
+   ],
+   "year": 2026,
+   "venue": "American Journal of Neuroradiology",
+   "volume": "47",
+   "issue": "4",
+   "pages": "920-928",
+   "doi": "10.3174/ajnr.A9016",
+   "arxiv": null,
+   "citations_s2": 2,
+   "text_file": "data/text/ajnr2026recanalization.txt",
+   "excerpts": [
+    {
+     "id": "ajnr2026recanalization#1",
+     "loc": "Abstract (Results)",
+     "quote": "The multimodal 3D nnU-Net model demonstrated superior performance, achieving mean Dice scores of 35.36% in patients with CR and 50.22% in those with NR. This model substantially outperformed the current clinically used method, providing more accurate outcome estimates than the conventional single-technique threshold-based measures, which yielded Dice scores of 15.73% and 39.71% for CR and NR groups, respectively.",
+     "topic": "DL vs thresholds",
+     "verified": "exact"
+    },
+    {
+     "id": "ajnr2026recanalization#2",
+     "loc": "Abstract (Methods)",
+     "quote": "evaluated them separately for patients with complete recanalization (successful reperfusion [CR], n = 350) and no recanalization (unsuccessful reperfusion [NR], n = 138) after treatment.",
+     "topic": "dataset",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "zhang2025dinov3stroke",
+   "section": "B",
+   "inclusion_rule": "R1/R3: frozen foundation model (DINOv3) evaluated on ISLES'24 NCCT",
+   "access": "full text (arXiv PDF)",
+   "url": "https://arxiv.org/abs/2509.23132",
+   "title": "Benchmarking DINOv3 for Multi-Task Stroke Analysis on Non-Contrast CT",
+   "authors": [
+    "Dong-Hao Zhang",
+    "Yimin Chen",
+    "K. Duarte",
+    "T. Aslan",
+    "Mohamed Alshamrani",
+    "B. Karmur",
+    "Yan Wan",
+    "Shengcai Chen",
+    "Bo Hu",
+    "B. Menon",
+    "Wu Qiu"
+   ],
+   "year": 2025,
+   "venue": "arXiv preprint arXiv:2509.23132",
+   "volume": null,
+   "issue": null,
+   "pages": null,
+   "doi": "10.48550/arXiv.2509.23132",
+   "arxiv": "2509.23132",
+   "citations_s2": 3,
+   "text_file": "data/text/zhang2025dinov3stroke.txt",
+   "excerpts": [
+    {
+     "id": "zhang2025dinov3stroke#1",
+     "loc": "p6",
+     "quote": "We also extracted the labeled slices from this dataset to form our dataset. Finally, we compiled 3982 slices, randomly dividing them into 3185 for training and 797 for testing.",
+     "topic": "protocol",
+     "verified": "exact"
+    },
+    {
+     "id": "zhang2025dinov3stroke#2",
+     "loc": "p10",
+     "quote": "On ISLES24, FPN+Refine with layers [2,5,8,11] yields the highest Dice of 0.5678",
+     "topic": "foundation models",
+     "verified": "exact"
+    },
+    {
+     "id": "zhang2025dinov3stroke#3",
+     "loc": "p2",
+     "quote": "Among them, DINOv3 [17] represents a state-of-the-art vision transformer, pretrained on more than 1.6 billion images, and capable of extracting high-fidelity, fine-grained dense features.",
+     "topic": "foundation models",
+     "verified": "exact"
+    },
+    {
+     "id": "zhang2025dinov3stroke#4",
+     "loc": "p11",
+     "quote": "This work presents a unified, reproducible evaluation of a frozen self-supervised transformer backbone (DINOv3) on NCCT-based stroke analysis",
+     "topic": "foundation models",
+     "verified": "whitespace"
+    }
+   ]
+  },
+  {
+   "key": "shah2026asymfex",
+   "section": "B",
+   "inclusion_rule": "R1: uses ISLES'24 with re-annotated pre-treatment labels",
+   "access": "full text (arXiv PDF)",
+   "url": "https://arxiv.org/abs/2608.19769",
+   "title": "AsymFeX: A Symmetry-Driven Framework for Ischemic Stroke Segmentation Across Imaging Modalities and Stroke Stages",
+   "authors": [
+    "M. Shah",
+    "V. Sundaresan"
+   ],
+   "year": 2026,
+   "venue": "arXiv preprint arXiv:2608.19769",
+   "volume": null,
+   "issue": null,
+   "pages": null,
+   "doi": null,
+   "arxiv": "2608.19769",
+   "citations_s2": 0,
+   "text_file": "data/text/shah2026asymfex.txt",
+   "excerpts": [
+    {
+     "id": "shah2026asymfex#1",
+     "loc": "p8",
+     "quote": "ISLES’24 targets prediction of postinterventional infarct from pre-interventional CT, but since infarcts evolve after the initial scan, the released masks do not reflect the pre-interventional state. An expert neuroradiologist therefore manually re-delineated pre-interventional ischemic core and penumbra on the CT perfusion scans using ITK-SNAP [31].",
+     "topic": "protocol",
+     "verified": "exact"
+    },
+    {
+     "id": "shah2026asymfex#2",
+     "loc": "p14",
+     "quote": "NCCT alone collapses to near-failing performance at this timepoint regardless of architecture, underscoring that imaging modality, not model design, is the binding constraint at early stroke stages.",
+     "topic": "modalities",
+     "verified": "exact"
+    },
+    {
+     "id": "shah2026asymfex#3",
+     "loc": "p2",
+     "quote": "A 2-stage 3D segmentation pipeline that integrates with nnUNet and incorporates stroke-specific prior knowledge via an explicit geometric tiltcorrection step",
+     "topic": "architectures",
+     "verified": "exact"
+    },
+    {
+     "id": "shah2026asymfex#4",
+     "loc": "p8",
+     "quote": "we incorporate CT perfusion parameter maps, including Cerebral Blood Volume (CBV), Cerebral Blood Flow (CBF)",
+     "topic": "modalities",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "britt2026ncct",
+   "section": "B",
+   "inclusion_rule": "R1: NCCT model fine-tuned on ISLES'24",
+   "access": "full text (arXiv PDF)",
+   "url": "https://arxiv.org/abs/2609.20151",
+   "title": "Ischemic Stroke Segmentation and Net Water Uptake Quantification on Multicenter Non-Contrast CT Using Supervised Target-Domain Adaptation",
+   "authors": [
+    "Linus Britt",
+    "M. Nielsen",
+    "S. Klapproth",
+    "A. Kemmling",
+    "M. Lev",
+    "Gabriel Broocks",
+    "René Werner",
+    "Thilo Sentker"
+   ],
+   "year": 2026,
+   "venue": "arXiv preprint arXiv:2609.20151",
+   "volume": null,
+   "issue": null,
+   "pages": null,
+   "doi": null,
+   "arxiv": "2609.20151",
+   "citations_s2": 0,
+   "text_file": "data/text/britt2026ncct.txt",
+   "excerpts": [
+    {
+     "id": "britt2026ncct#1",
+     "loc": "p2",
+     "quote": "Including smaller lesions, which predominated in ISLES, median Dice was 0.54 (interquartile range [IQR] 0.30 – 0.70) for acute lesion segmentation (Boston dataset) and 0.20 (IQR 0.03–0.41) for NCCT lesion segmentations when compared to post-treatment infarct (primary target of the ISLES challenge).",
+     "topic": "modalities",
+     "verified": "exact"
+    },
+    {
+     "id": "britt2026ncct#2",
+     "loc": "p2",
+     "quote": "To adapt to new domains, the model was fine-tuned on target-domain subsets from Boston (n=11) and ISLES (n=75), with evaluation on held-out cases not used for fine-tuning.",
+     "topic": "protocol",
+     "verified": "whitespace"
+    }
+   ]
+  },
+  {
+   "key": "samak2024review",
+   "section": "B",
+   "inclusion_rule": "R2: survey of DL stroke outcome prediction",
+   "access": "full text (arXiv PDF)",
+   "url": "https://doi.org/10.1007/s13534-025-00462-y",
+   "title": "Automatic prediction of stroke treatment outcomes: latest advances and perspectives",
+   "authors": [
+    "Zeynel A. Samak",
+    "Philip Clatworthy",
+    "Majid Mirmehdi"
+   ],
+   "year": 2025,
+   "venue": "Biomedical Engineering Letters",
+   "volume": "15",
+   "issue": "3",
+   "pages": "467-488",
+   "doi": "10.1007/s13534-025-00462-y",
+   "arxiv": "2412.04812",
+   "citations_s2": 16,
+   "text_file": "data/text/samak2024review.txt",
+   "excerpts": [
+    {
+     "id": "samak2024review#1",
+     "loc": "p1",
+     "quote": "This article provides a broad review of recent advances and applications of deep learning in the prediction of stroke outcomes, including (i) the data and models used, (ii) the prediction tasks and measures of success, (iii) the current challenges and limitations, and (iv) future directions and potential benefits.",
+     "topic": "review",
+     "verified": "exact"
+    },
+    {
+     "id": "samak2024review#2",
+     "loc": "p3",
+     "quote": "Hence, there is also a lack of such data for researchers to apply today’s enhanced language models [11, 12] for outcome predictions.",
+     "topic": "VLM limits",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "robben2020nativectp",
+   "section": "C",
+   "inclusion_rule": "R2: native-CTP final infarct prediction",
+   "access": "full text (arXiv PDF)",
+   "url": "https://doi.org/10.1016/j.media.2019.101589",
+   "title": "Prediction of final infarct volume from native CT perfusion and treatment parameters using deep learning",
+   "authors": [
+    "David Robben",
+    "Anna M.M. Boers",
+    "Henk A. Marquering",
+    "Lucianne L.C.M. Langezaal",
+    "Yvo B.W.E.M. Roos",
+    "Robert J. van Oostenbrugge",
+    "Wim H. van Zwam",
+    "Diederik W.J. Dippel",
+    "Charles B.L.M. Majoie",
+    "Aad van der Lugt",
+    "Robin Lemmens",
+    "Paul Suetens"
+   ],
+   "year": 2020,
+   "venue": "Medical Image Analysis",
+   "volume": "59",
+   "issue": null,
+   "pages": "101589",
+   "doi": "10.1016/j.media.2019.101589",
+   "arxiv": "1812.02496",
+   "citations_s2": 85,
+   "text_file": "data/text/robben2020nativectp.txt",
+   "excerpts": [
+    {
+     "id": "robben2020nativectp#1",
+     "loc": "p1",
+     "quote": "We pursue a data-driven and deconvolution-free approach, where a deep neural network learns to predict the final infarct volume directly from the native CTP images and metadata such as the time parameters and treatment.",
+     "topic": "native CTP",
+     "verified": "exact"
+    },
+    {
+     "id": "robben2020nativectp#2",
+     "loc": "p1",
+     "quote": "An ablation study shows that using the native CTP measurements instead of the deconvolved measurements improves the prediction.",
+     "topic": "native CTP",
+     "verified": "exact"
+    },
+    {
+     "id": "robben2020nativectp#3",
+     "loc": "p2",
+     "quote": "Additionally, deconvolution is a mathematically ill-posed problem and that is problematic given the low signal to noise ratio of perfusion images (Fieselmann et al., 2011).",
+     "topic": "native CTP",
+     "verified": "exact"
+    },
+    {
+     "id": "robben2020nativectp#4",
+     "loc": "p6",
+     "quote": "This results in 188 included subjects.",
+     "topic": "dataset",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "amador2022spatiotemporal",
+   "section": "C",
+   "inclusion_rule": "R2: 4D CTP spatio-temporal outcome prediction",
+   "access": "abstract only (PubMed)",
+   "url": "https://doi.org/10.1016/j.media.2022.102610",
+   "title": "Predicting treatment-specific lesion outcomes in acute ischemic stroke from 4D CT perfusion imaging using spatio-temporal convolutional neural networks",
+   "authors": [
+    "Kimberly Amador",
+    "Matthias Wilms",
+    "Anthony Winder",
+    "Jens Fiehler",
+    "Nils D. Forkert"
+   ],
+   "year": 2022,
+   "venue": "Medical Image Analysis",
+   "volume": "82",
+   "issue": null,
+   "pages": "102610",
+   "doi": "10.1016/j.media.2022.102610",
+   "arxiv": null,
+   "citations_s2": 30,
+   "text_file": "data/text/amador2022spatiotemporal.txt",
+   "excerpts": [
+    {
+     "id": "amador2022spatiotemporal#1",
+     "loc": "Abstract",
+     "quote": "The proposed method was evaluated on 147 patients using a 10-fold cross validation, which demonstrated that the proposed 3D+time model (mean Dice=0.45) significantly outperforms both a 2D+time variant of our approach (mean Dice=0.43) and a state-of-the-art method that uses perfusion maps (mean Dice=0.38).",
+     "topic": "native CTP",
+     "verified": "exact"
+    },
+    {
+     "id": "amador2022spatiotemporal#2",
+     "loc": "Abstract",
+     "quote": "By merging a U-Net-like architecture with temporal convolutional networks, we efficiently process the spatio-temporal information available in CTP datasets to make a tissue outcome prediction.",
+     "topic": "native CTP",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "devries2023perfunet",
+   "section": "C",
+   "inclusion_rule": "R2: spatio-temporal core segmentation from CTP source data",
+   "access": "abstract only (PubMed)",
+   "url": "https://doi.org/10.1016/j.media.2023.102749",
+   "title": "PerfU-Net: Baseline infarct estimation from CT perfusion source data for acute ischemic stroke",
+   "authors": [
+    "Lucas de Vries",
+    "Bart J. Emmer",
+    "Charles B.L.M. Majoie",
+    "Henk A. Marquering",
+    "Efstratios Gavves"
+   ],
+   "year": 2023,
+   "venue": "Medical Image Analysis",
+   "volume": "85",
+   "issue": null,
+   "pages": "102749",
+   "doi": "10.1016/j.media.2023.102749",
+   "arxiv": null,
+   "citations_s2": 41,
+   "text_file": "data/text/devries2023perfunet.txt",
+   "excerpts": [
+    {
+     "id": "devries2023perfunet#1",
+     "loc": "Abstract",
+     "quote": "The outcomes and perfusion maps of CT perfusion software, however, show many discrepancies between vendors.",
+     "topic": "native CTP",
+     "verified": "exact"
+    },
+    {
+     "id": "devries2023perfunet#2",
+     "loc": "Abstract",
+     "quote": "To this end, we present a symmetry-aware spatio-temporal segmentation model that encodes the micro-perfusion dynamics in the brain, while decoding a static segmentation map for infarct core assessment.",
+     "topic": "native CTP",
+     "verified": "exact"
+    },
+    {
+     "id": "devries2023perfunet#3",
+     "loc": "Abstract",
+     "quote": "We achieve state-of-the-art results compared to methods that only use CT perfusion source imaging with a Dice score of 0.46. We are almost on par with methods that use perfusion maps from third party software",
+     "topic": "native CTP",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "isensee2021nnunet",
+   "section": "D",
+   "inclusion_rule": "R3: baseline framework",
+   "access": "abstract only (PubMed)",
+   "url": "https://doi.org/10.1038/s41592-020-01008-z",
+   "title": "nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation",
+   "authors": [
+    "Fabian Isensee",
+    "Paul F. Jaeger",
+    "Simon A. A. Kohl",
+    "Jens Petersen",
+    "Klaus H. Maier-Hein"
+   ],
+   "year": 2021,
+   "venue": "Nature Methods",
+   "volume": "18",
+   "issue": "2",
+   "pages": "203-211",
+   "doi": "10.1038/s41592-020-01008-z",
+   "arxiv": null,
+   "citations_s2": 10370,
+   "text_file": "data/text/isensee2021nnunet.txt",
+   "excerpts": [
+    {
+     "id": "isensee2021nnunet#1",
+     "loc": "Abstract",
+     "quote": "We developed nnU-Net, a deep learning-based segmentation method that automatically configures itself, including preprocessing, network architecture, training and post-processing for any new task.",
+     "topic": "baseline",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "isensee2024revisited",
+   "section": "D",
+   "inclusion_rule": "R3: ResEnc presets used by the winner; validation pitfalls",
+   "access": "full text (arXiv PDF)",
+   "url": "https://arxiv.org/abs/2404.09556",
+   "title": "nnU-Net Revisited: A Call for Rigorous Validation in 3D Medical Image Segmentation",
+   "authors": [
+    "Fabian Isensee",
+    "Tassilo Wald",
+    "Constantin Ulrich",
+    "M. Baumgartner",
+    "Saikat Roy",
+    "K. Maier-Hein",
+    "P. Jaeger"
+   ],
+   "year": 2024,
+   "venue": "MICCAI 2024 (LNCS)",
+   "volume": null,
+   "issue": null,
+   "pages": null,
+   "doi": "10.48550/arXiv.2404.09556",
+   "arxiv": "2404.09556",
+   "citations_s2": 512,
+   "text_file": "data/text/isensee2024revisited.txt",
+   "excerpts": [
+    {
+     "id": "isensee2024revisited#1",
+     "loc": "p1",
+     "quote": "In contrast to current beliefs, we find that the recipe for state-of-the-art performance is 1) employing CNN-based U-Net models, including ResNet and ConvNeXt variants, 2) using the nnU-Net framework, and 3) scaling models to modern hardware resources.",
+     "topic": "baseline",
+     "verified": "exact"
+    },
+    {
+     "id": "isensee2024revisited#2",
+     "loc": "p1",
+     "quote": "In this study, we demonstrate that many of these recent claims fail to hold up when scrutinized for common validation shortcomings, such as the use of inadequate baselines, insufficient datasets, and neglected computational resources.",
+     "topic": "protocol",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "hatamizadeh2022swinunetr",
+   "section": "D",
+   "inclusion_rule": "R3: transformer 3D segmentation backbone",
+   "access": "full text (arXiv PDF)",
+   "url": "https://doi.org/10.1007/978-3-031-08999-2_22",
+   "title": "Swin UNETR: Swin Transformers for Semantic Segmentation of Brain Tumors in MRI Images",
+   "authors": [
+    "Ali Hatamizadeh",
+    "Vishwesh Nath",
+    "Yucheng Tang",
+    "Dong Yang",
+    "Holger R. Roth",
+    "Daguang Xu"
+   ],
+   "year": 2022,
+   "venue": "Lecture Notes in Computer Science",
+   "volume": null,
+   "issue": null,
+   "pages": "272-284",
+   "doi": "10.1007/978-3-031-08999-2_22",
+   "arxiv": "2201.01266",
+   "citations_s2": 2622,
+   "text_file": "data/text/hatamizadeh2022swinunetr.txt",
+   "excerpts": [
+    {
+     "id": "hatamizadeh2022swinunetr#1",
+     "loc": "p1",
+     "quote": "The swin transformer encoder extracts features at five different resolutions by utilizing shifted windows for computing self-attention and is connected to an FCNN-based decoder at each resolution via skip connections.",
+     "topic": "architectures",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "perera2024segformer3d",
+   "section": "D",
+   "inclusion_rule": "R3: transformer evaluated on ISLES'24 by Cegarra et al.",
+   "access": "full text (arXiv PDF)",
+   "url": "https://doi.org/10.1109/CVPRW63382.2024.00503",
+   "title": "SegFormer3D: an Efficient Transformer for 3D Medical Image Segmentation",
+   "authors": [
+    "Shehan Perera",
+    "Pouyan Navard",
+    "Alper Yilmaz"
+   ],
+   "year": 2024,
+   "venue": "2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)",
+   "volume": null,
+   "issue": null,
+   "pages": "4981-4988",
+   "doi": "10.1109/CVPRW63382.2024.00503",
+   "arxiv": "2404.10156",
+   "citations_s2": 127,
+   "text_file": "data/text/perera2024segformer3d.txt",
+   "excerpts": [
+    {
+     "id": "perera2024segformer3d#1",
+     "loc": "p1",
+     "quote": "SegFormer3D democratizes deep learning for 3D medical image segmentation by offering a model with 33× less parameters and a 13× reduction in GFLOPS compared to the current state-of-theart (SOTA).",
+     "topic": "architectures",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "tong2022videomae",
+   "section": "E",
+   "inclusion_rule": "R3: candidate pretrained video encoder",
+   "access": "full text (arXiv PDF)",
+   "url": "https://arxiv.org/abs/2203.12602",
+   "title": "VideoMAE: Masked Autoencoders are Data-Efficient Learners for Self-Supervised Video Pre-Training",
+   "authors": [
+    "Zhan Tong",
+    "Yi-Bing Song",
+    "Jue Wang",
+    "Limin Wang"
+   ],
+   "year": 2022,
+   "venue": "NeurIPS 2022",
+   "volume": null,
+   "issue": null,
+   "pages": null,
+   "doi": "10.48550/arXiv.2203.12602",
+   "arxiv": "2203.12602",
+   "citations_s2": 2308,
+   "text_file": "data/text/tong2022videomae.txt",
+   "excerpts": [
+    {
+     "id": "tong2022videomae#1",
+     "loc": "p1",
+     "quote": "(2) VideoMAE achieves impressive results on very small datasets (i.e., around 3k-4k videos) without using any extra data.",
+     "topic": "video",
+     "verified": "exact"
+    },
+    {
+     "id": "tong2022videomae#2",
+     "loc": "p1",
+     "quote": "The temporally redundant video content enables higher masking ratio than that of images.",
+     "topic": "video",
+     "verified": "exact"
+    },
+    {
+     "id": "tong2022videomae#3",
+     "loc": "p4",
+     "quote": "We adopt the joint space-time cube embedding [3, 22, 39] in our VideoMAE, where we treat each cube of size 2× 16× 16 as one token embedding.",
+     "topic": "video",
+     "verified": "whitespace"
+    },
+    {
+     "id": "tong2022videomae#4",
+     "loc": "p5",
+     "quote": "we perform in-depth ablation studies on VideoMAE design with the default backbone of 16-frame ViT-B on Something-Something V2 (SSV2) and Kinetics-400 (K400).",
+     "topic": "video",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "liu2022videoswin",
+   "section": "E",
+   "inclusion_rule": "R3: candidate pretrained video encoder",
+   "access": "full text (arXiv PDF)",
+   "url": "https://doi.org/10.1109/CVPR52688.2022.00320",
+   "title": "Video Swin Transformer",
+   "authors": [
+    "Ze Liu",
+    "Jia Ning",
+    "Yue Cao",
+    "Yixuan Wei",
+    "Zheng Zhang",
+    "Stephen Lin",
+    "Han Hu"
+   ],
+   "year": 2022,
+   "venue": "2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+   "volume": null,
+   "issue": null,
+   "pages": "3192-3201",
+   "doi": "10.1109/CVPR52688.2022.00320",
+   "arxiv": "2106.13230",
+   "citations_s2": 2296,
+   "text_file": "data/text/liu2022videoswin.txt",
+   "excerpts": [
+    {
+     "id": "liu2022videoswin#1",
+     "loc": "p1",
+     "quote": "In this paper, we instead advocate an inductive bias of locality in video Transformers, which leads to a better speed-accuracy trade-off compared to previous approaches which compute self-attention globally even with spatial-temporal factorization.",
+     "topic": "video",
+     "verified": "exact"
+    },
+    {
+     "id": "liu2022videoswin#2",
+     "loc": "p2",
+     "quote": "spatiotemporal locality of videos, in which pixels that are closer to each other in spatiotemporal distance are more likely to be correlated.",
+     "topic": "video",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "bertasius2021timesformer",
+   "section": "E",
+   "inclusion_rule": "R3: space-time attention design",
+   "access": "full text (arXiv PDF)",
+   "url": "https://arxiv.org/abs/2102.05095",
+   "title": "Is Space-Time Attention All You Need for Video Understanding?",
+   "authors": [
+    "Gedas Bertasius",
+    "Heng Wang",
+    "L. Torresani"
+   ],
+   "year": 2021,
+   "venue": "ICML 2021",
+   "volume": null,
+   "issue": null,
+   "pages": null,
+   "doi": null,
+   "arxiv": "2102.05095",
+   "citations_s2": 3370,
+   "text_file": "data/text/bertasius2021timesformer.txt",
+   "excerpts": [
+    {
+     "id": "bertasius2021timesformer#1",
+     "loc": "p1",
+     "quote": "Our experimental study compares different self-attention schemes and suggests that “divided attention,” where temporal attention and spatial attention are separately applied within each block, leads to the best video classification accuracy among the design choices considered.",
+     "topic": "video",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "bardes2024vjepa",
+   "section": "E",
+   "inclusion_rule": "R3: candidate pretrained video encoder (frozen use)",
+   "access": "full text (arXiv PDF)",
+   "url": "https://arxiv.org/abs/2404.08471",
+   "title": "Revisiting Feature Prediction for Learning Visual Representations from Video",
+   "authors": [
+    "Adrien Bardes",
+    "Q. Garrido",
+    "Jean Ponce",
+    "Xin-Lei Chen",
+    "Michael G. Rabbat",
+    "Yann LeCun",
+    "Mido Assran",
+    "Nicolas Ballas"
+   ],
+   "year": 2024,
+   "venue": "Transactions on Machine Learning Research (TMLR) 2024",
+   "volume": null,
+   "issue": null,
+   "pages": null,
+   "doi": "10.48550/arXiv.2404.08471",
+   "arxiv": "2404.08471",
+   "citations_s2": 563,
+   "text_file": "data/text/bardes2024vjepa.txt",
+   "excerpts": [
+    {
+     "id": "bardes2024vjepa#1",
+     "loc": "p1",
+     "quote": "Our results show that learning by predicting video features leads to versatile visual representations that perform well on both motion and appearance-based tasks, without adaption of the model’s parameters; e.g., using a frozen backbone.",
+     "topic": "video",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "ravi2024sam2",
+   "section": "E",
+   "inclusion_rule": "R3/R4: video segmentation foundation model",
+   "access": "full text (arXiv PDF)",
+   "url": "https://arxiv.org/abs/2408.00714",
+   "title": "SAM 2: Segment Anything in Images and Videos",
+   "authors": [
+    "Nikhila Ravi",
+    "Valentin Gabeur",
+    "Yuan-Ting Hu",
+    "Ronghang Hu",
+    "Chaitanya K. Ryali",
+    "Tengyu Ma",
+    "Haitham Khedr",
+    "Roman Rädle",
+    "Chloé Rolland",
+    "Laura Gustafson",
+    "Eric Mintun",
+    "Junting Pan",
+    "Kalyan Vasudev Alwala",
+    "Nicolas Carion",
+    "Chao Wu",
+    "Ross B. Girshick",
+    "Piotr Doll'ar",
+    "Christoph Feichtenhofer"
+   ],
+   "year": 2025,
+   "venue": "ICLR 2025",
+   "volume": null,
+   "issue": null,
+   "pages": null,
+   "doi": "10.48550/arXiv.2408.00714",
+   "arxiv": "2408.00714",
+   "citations_s2": 4349,
+   "text_file": "data/text/ravi2024sam2.txt",
+   "excerpts": [
+    {
+     "id": "ravi2024sam2#1",
+     "loc": "p1",
+     "quote": "Our model is a simple transformer architecture with streaming memory for real-time video processing.",
+     "topic": "video",
+     "verified": "exact"
+    },
+    {
+     "id": "ravi2024sam2#2",
+     "loc": "p15",
+     "quote": "For images, the SA task can be considered a subset of PVS with the video reduced to a single frame.",
+     "topic": "video",
+     "verified": "exact"
+    },
+    {
+     "id": "ravi2024sam2#3",
+     "loc": "p2",
+     "quote": "SAM 2 is capable of interactively segmenting regions through prompts (clicks, boxes, or masks) on one or multiple video frames by utilizing a streaming memory that stores previous prompts and predictions.",
+     "topic": "video",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "zhu2024medicalsam2",
+   "section": "E",
+   "inclusion_rule": "R4: 3D medical volumes treated as video",
+   "access": "full text (arXiv PDF)",
+   "url": "https://arxiv.org/abs/2408.00874",
+   "title": "Medical SAM 2: Segment medical images as video via Segment Anything Model 2",
+   "authors": [
+    "Jia-Yuan Zhu",
+    "Yunli Qi",
+    "Jun-De Wu"
+   ],
+   "year": 2024,
+   "venue": "arXiv preprint arXiv:2408.00874",
+   "volume": null,
+   "issue": null,
+   "pages": null,
+   "doi": "10.48550/arXiv.2408.00874",
+   "arxiv": "2408.00874",
+   "citations_s2": 286,
+   "text_file": "data/text/zhu2024medicalsam2.txt",
+   "excerpts": [
+    {
+     "id": "zhu2024medicalsam2#1",
+     "loc": "p1",
+     "quote": "The core concept is to leverage the Segment Anything Model 2 (SAM2) pipeline to treat all 2D and 3D medical segmentation tasks as a video object tracking problem.",
+     "topic": "video on volumes",
+     "verified": "exact"
+    },
+    {
+     "id": "zhu2024medicalsam2#2",
+     "loc": "p1",
+     "quote": "To put it into practice, we propose a novel self-sorting memory bank mechanism that dynamically selects informative embeddings based on confidence and dissimilarity, regardless of temporal order.",
+     "topic": "video on volumes",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "ma2025medsam2",
+   "section": "E",
+   "inclusion_rule": "R4: video foundation model fine-tuned for 3D medical images",
+   "access": "full text (arXiv PDF)",
+   "url": "https://arxiv.org/abs/2504.03600",
+   "title": "MedSAM2: Segment Anything in 3D Medical Images and Videos",
+   "authors": [
+    "Jun Ma",
+    "Zongxin Yang",
+    "Sumin Kim",
+    "Bihuan Chen",
+    "Mohammed Baharoon",
+    "Adibvafa Fallahpour",
+    "Reza Asakereh",
+    "Hongwei Lyu",
+    "Bo Wang"
+   ],
+   "year": 2025,
+   "venue": "arXiv preprint arXiv:2504.03600",
+   "volume": null,
+   "issue": null,
+   "pages": null,
+   "doi": "10.48550/arXiv.2504.03600",
+   "arxiv": "2504.03600",
+   "citations_s2": 156,
+   "text_file": "data/text/ma2025medsam2.txt",
+   "excerpts": [
+    {
+     "id": "ma2025medsam2#1",
+     "loc": "p1",
+     "quote": "The model is developed by fine-tuning the Segment Anything Model 2 on a large medical dataset with over 455,000 3D image-mask pairs and 76,000 frames, outperforming previous models across a wide range of organs, lesions, and imaging modalities.",
+     "topic": "video on volumes",
+     "verified": "exact"
+    },
+    {
+     "id": "ma2025medsam2#2",
+     "loc": "p2",
+     "quote": "To reuse the pre-trained model weights and avoid prohibitive computing costs, MedSAM2 adopted the SAM2 network architecture, including an image encoder, a memory attention module, a prompt encoder, and a mask decoder (Fig 1b).",
+     "topic": "video on volumes",
+     "verified": "exact"
+    },
+    {
+     "id": "ma2025medsam2#3",
+     "loc": "p1",
+     "quote": "involving the annotation of 5,000 CT lesions, 3,984 liver MRI lesions, and 251,550 echocardiogram video frames, demonstrating that MedSAM2 can reduce manual costs by more than 85%.",
+     "topic": "video on volumes",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "ke2023videopretraining",
+   "section": "E",
+   "inclusion_rule": "R4: natural-video pretraining transferred to 3D CT",
+   "access": "full text (arXiv PDF)",
+   "url": "https://arxiv.org/abs/2304.00546",
+   "title": "Video Pretraining Advances 3D Deep Learning on Chest CT Tasks",
+   "authors": [
+    "Alexander Ke",
+    "Shih-Cheng Huang",
+    "Chloe O'Connell",
+    "M. Klimont",
+    "Serena Yeung",
+    "P. Rajpurkar"
+   ],
+   "year": 2023,
+   "venue": "MIDL 2023 (PMLR)",
+   "volume": null,
+   "issue": null,
+   "pages": null,
+   "doi": "10.48550/arXiv.2304.00546",
+   "arxiv": "2304.00546",
+   "citations_s2": 11,
+   "text_file": "data/text/ke2023videopretraining.txt",
+   "excerpts": [
+    {
+     "id": "ke2023videopretraining#1",
+     "loc": "p1",
+     "quote": "We demonstrate video pretraining improves the average performance of seven 3D models on two chest CT datasets, regardless of finetuning dataset size, and that video pretraining allows 3D models to outperform 2D baselines.",
+     "topic": "video on volumes",
+     "verified": "exact"
+    },
+    {
+     "id": "ke2023videopretraining#2",
+     "loc": "p1",
+     "quote": "Lastly, we observe that pretraining on the large-scale out-of-domain Kinetics dataset improves performance more than pretraining on a typically-sized in-domain CT dataset.",
+     "topic": "video on volumes",
+     "verified": "exact"
+    },
+    {
+     "id": "ke2023videopretraining#3",
+     "loc": "p2",
+     "quote": "We then transferred these weights and finetuned them on RSNA for PE detection and LIDC for lung nodule detection.",
+     "topic": "video on volumes",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "ma2024medsam",
+   "section": "F",
+   "inclusion_rule": "R3: medical segmentation foundation model",
+   "access": "full text (arXiv PDF)",
+   "url": "https://doi.org/10.1038/s41467-024-44824-z",
+   "title": "Segment anything in medical images",
+   "authors": [
+    "Jun Ma",
+    "Yuting He",
+    "Feifei Li",
+    "Lin Han",
+    "Chenyu You",
+    "Bo Wang"
+   ],
+   "year": 2024,
+   "venue": "Nature Communications",
+   "volume": "15",
+   "issue": "1",
+   "pages": "654",
+   "doi": "10.1038/s41467-024-44824-z",
+   "arxiv": "2304.12306",
+   "citations_s2": 1675,
+   "text_file": "data/text/ma2024medsam.txt",
+   "excerpts": [
+    {
+     "id": "ma2024medsam#1",
+     "loc": "p2",
+     "quote": "However, the model exhibited substantial limitations in segmenting typical medical targets with weak boundaries or low contrast.",
+     "topic": "foundation models",
+     "verified": "exact"
+    },
+    {
+     "id": "ma2024medsam#2",
+     "loc": "p2",
+     "quote": "Essentially, SAM is a promptable segmentation method that requires points or bounding boxes to specify the segmentation targets.",
+     "topic": "foundation models",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "wang2023sammed3d",
+   "section": "F",
+   "inclusion_rule": "R3: volumetric promptable foundation model",
+   "access": "full text (arXiv PDF)",
+   "url": "https://doi.org/10.1007/978-3-031-91721-9_4",
+   "title": "SAM-Med3D: Towards General-Purpose Segmentation Models for Volumetric Medical Images",
+   "authors": [
+    "Haoyu Wang",
+    "Sizheng Guo",
+    "Jin Ye",
+    "Zhongying Deng",
+    "Junlong Cheng",
+    "Tianbin Li",
+    "Jianpin Chen",
+    "Yanzhou Su",
+    "Ziyan Huang",
+    "Yiqing Shen",
+    "Bin Fu",
+    "Shaoting Zhang",
+    "Junjun He",
+    "Yu Qiao"
+   ],
+   "year": 2025,
+   "venue": "Lecture Notes in Computer Science",
+   "volume": null,
+   "issue": null,
+   "pages": "51-67",
+   "doi": "10.1007/978-3-031-91721-9_4",
+   "arxiv": "2310.15161",
+   "citations_s2": 204,
+   "text_file": "data/text/wang2023sammed3d.txt",
+   "excerpts": [
+    {
+     "id": "wang2023sammed3d#1",
+     "loc": "p1",
+     "quote": "Given only a few 3D prompt points, SAM-Med3D can accurately segment diverse anatomical structures and lesions across various modalities.",
+     "topic": "foundation models",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "liu2023clipdriven",
+   "section": "F",
+   "inclusion_rule": "R3/R4: text embeddings as segmentation conditioning",
+   "access": "full text (arXiv PDF)",
+   "url": "https://doi.org/10.1109/ICCV51070.2023.01934",
+   "title": "CLIP-Driven Universal Model for Organ Segmentation and Tumor Detection",
+   "authors": [
+    "Jie Liu",
+    "Yixiao Zhang",
+    "Jie-Neng Chen",
+    "Junfei Xiao",
+    "Yongyi Lu",
+    "Bennett A. Landman",
+    "Yixuan Yuan",
+    "Alan Yuille",
+    "Yucheng Tang",
+    "Zongwei Zhou"
+   ],
+   "year": 2023,
+   "venue": "2023 IEEE/CVF International Conference on Computer Vision (ICCV)",
+   "volume": null,
+   "issue": null,
+   "pages": "21095-21107",
+   "doi": "10.1109/ICCV51070.2023.01934",
+   "arxiv": "2301.00785",
+   "citations_s2": 387,
+   "text_file": "data/text/liu2023clipdriven.txt",
+   "excerpts": [
+    {
+     "id": "liu2023clipdriven#1",
+     "loc": "p1",
+     "quote": "To address these issues, we propose the CLIP-Driven Universal Model, which incorporates text embedding learned from Contrastive Language-Image Pre-training (CLIP) to segmentation models.",
+     "topic": "VLM option",
+     "verified": "exact"
+    },
+    {
+     "id": "liu2023clipdriven#2",
+     "loc": "p4",
+     "quote": "We first concatenate the CLIP embedding (wk) and the global image feature (f) and then input it to a multi-layer perceptron (MLP), namely text-based controller [71], to generate parameters (θk), i.e., θk = MLP(wk⊕f ), where ⊕ is the concatenation.",
+     "topic": "VLM option",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "zhao2023sat",
+   "section": "F",
+   "inclusion_rule": "R3/R4: text-prompted 3D segmentation",
+   "access": "full text (arXiv PDF)",
+   "url": "https://doi.org/10.1038/s41746-025-01964-w",
+   "title": "Large-vocabulary segmentation for medical images with text prompts",
+   "authors": [
+    "Ziheng Zhao",
+    "Yao Zhang",
+    "Chaoyi Wu",
+    "Xiaoman Zhang",
+    "Xiao Zhou",
+    "Ya Zhang",
+    "Yanfeng Wang",
+    "Weidi Xie"
+   ],
+   "year": 2025,
+   "venue": "npj Digital Medicine",
+   "volume": "8",
+   "issue": "1",
+   "pages": "566",
+   "doi": "10.1038/s41746-025-01964-w",
+   "arxiv": "2312.17183",
+   "citations_s2": 101,
+   "text_file": "data/text/zhao2023sat.txt",
+   "excerpts": [
+    {
+     "id": "zhao2023sat#1",
+     "loc": "p1",
+     "quote": "However, while transferring to medical scenarios, these models trained on natural images suffer from fundamental limitations: (i) models typically perform 2D slice segmentation, which is later fused into 3D volumes through post-processing.",
+     "topic": "VLM limits",
+     "verified": "exact"
+    },
+    {
+     "id": "zhao2023sat#2",
+     "loc": "p1",
+     "quote": "SAT-Pro achieves comparable performance to 72 nnU-Nets—the strongest specialist models trained on each dataset (over 2.2B parameters combined)—over 497 categories.",
+     "topic": "foundation models",
+     "verified": "whitespace"
+    }
+   ]
+  },
+  {
+   "key": "hamamci2024ctclip",
+   "section": "F",
+   "inclusion_rule": "R3: 3D CT vision-language model",
+   "access": "full text (arXiv PDF)",
+   "url": "https://doi.org/10.1038/s41551-025-01599-y",
+   "title": "Generalist foundation models from a multimodal dataset for 3D computed tomography",
+   "authors": [
+    "Ibrahim Ethem Hamamci",
+    "Sezgin Er",
+    "Chenyu Wang",
+    "Furkan Almas",
+    "Ayse Gulnihan Simsek",
+    "Sevval Nil Esirgun",
+    "Irem Dogan",
+    "Omer Faruk Durugol",
+    "Benjamin Hou",
+    "Suprosanna Shit",
+    "Weicheng Dai",
+    "Murong Xu",
+    "Hadrien Reynaud",
+    "Muhammed Furkan Dasdelen",
+    "Bastian Wittmann",
+    "Tamaz Amiranashvili",
+    "Enis Simsar",
+    "Mehmet Simsar",
+    "Emine Bensu Erdemir",
+    "Abdullah Alanbay",
+    "Anjany Sekuboyina",
+    "Berkan Lafci",
+    "Ahmet Kaplan",
+    "Zhiyong Lu",
+    "Malgorzata Polacin",
+    "Bernhard Kainz",
+    "Christian Bluethgen",
+    "Kayhan Batmanghelich",
+    "Mehmet Kemal Ozdemir",
+    "Bjoern Menze"
+   ],
+   "year": 2026,
+   "venue": "Nature Biomedical Engineering",
+   "volume": "10",
+   "issue": "8",
+   "pages": "1610-1628",
+   "doi": "10.1038/s41551-025-01599-y",
+   "arxiv": "2403.17834",
+   "citations_s2": 258,
+   "text_file": "data/text/hamamci2024ctclip.txt",
+   "excerpts": [
+    {
+     "id": "hamamci2024ctclip#1",
+     "loc": "p1",
+     "quote": "CT-RATE comprises 25,692 non-contrast 3D chest CT scans from 21,304 unique patients.",
+     "topic": "VLM limits",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "blankemeier2024merlin",
+   "section": "F",
+   "inclusion_rule": "R3: 3D CT VLM using EHR + reports",
+   "access": "full text (arXiv PDF)",
+   "url": "https://doi.org/10.1038/s41586-026-10181-8",
+   "title": "Merlin: a computed tomography vision–language foundation model and dataset",
+   "authors": [
+    "Louis Blankemeier",
+    "Ashwin Kumar",
+    "Joseph Paul Cohen",
+    "Jiaming Liu",
+    "Longchao Liu",
+    "Dave Van Veen",
+    "Syed Jamal Safdar Gardezi",
+    "Hongkun Yu",
+    "Magdalini Paschali",
+    "Zhihong Chen",
+    "Jean-Benoit Delbrouck",
+    "Eduardo Reis",
+    "Robbie Holland",
+    "Cesar Truyts",
+    "Christian Bluethgen",
+    "Yufu Wu",
+    "Long Lian",
+    "Malte Engmann Kjeldskov Jensen",
+    "Sophie Ostmeier",
+    "Maya Varma",
+    "Jeya Maria Jose Valanarasu",
+    "Zhongnan Fang",
+    "Zepeng Huo",
+    "Zaid Nabulsi",
+    "Diego Ardila",
+    "Wei-Hung Weng",
+    "Edson Amaro Junior",
+    "Neera Ahuja",
+    "Jason Fries",
+    "Nigam H. Shah",
+    "Greg Zaharchuk",
+    "Marc Willis",
+    "Adam Yala",
+    "Andrew Johnston",
+    "Robert D. Boutin",
+    "Andrew Wentland",
+    "Curtis P. Langlotz",
+    "Jason Hom",
+    "Sergios Gatidis",
+    "Akshay S. Chaudhari"
+   ],
+   "year": 2026,
+   "venue": "Nature",
+   "volume": "652",
+   "issue": "8112",
+   "pages": "1318-1328",
+   "doi": "10.1038/s41586-026-10181-8",
+   "arxiv": "2406.06512",
+   "citations_s2": 175,
+   "text_file": "data/text/blankemeier2024merlin.txt",
+   "excerpts": [
+    {
+     "id": "blankemeier2024merlin#1",
+     "loc": "p1",
+     "quote": "To overcome these shortcomings for abdominal CT interpretation, we introduce Merlin - a 3D VLM that leverages both structured electronic health records (EHR) and unstructured radiology reports for pretraining without requiring additional manual annotations.",
+     "topic": "VLM option",
+     "verified": "whitespace"
+    },
+    {
+     "id": "blankemeier2024merlin#2",
+     "loc": "p9",
+     "quote": "Recent concurrent research has started to investigate 3D vision language models for radiology, particularly focusing on chest and head CT scans.79, 67 However, the extent of experiments and 3D evaluations are limited.",
+     "topic": "VLM limits",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "wu2023radfm",
+   "section": "F",
+   "inclusion_rule": "R3: generalist radiology foundation model",
+   "access": "full text (arXiv PDF)",
+   "url": "https://arxiv.org/abs/2308.02463",
+   "title": "Towards Generalist Foundation Model for Radiology",
+   "authors": [
+    "Chaoyi Wu",
+    "Xiaoman Zhang",
+    "Ya Zhang",
+    "Yan-Feng Wang",
+    "Weidi Xie"
+   ],
+   "year": 2023,
+   "venue": "arXiv preprint arXiv:2308.02463",
+   "volume": null,
+   "issue": null,
+   "pages": null,
+   "doi": "10.48550/arXiv.2308.02463",
+   "arxiv": "2308.02463",
+   "citations_s2": 236,
+   "text_file": "data/text/wu2023radfm.txt",
+   "excerpts": [
+    {
+     "id": "wu2023radfm#1",
+     "loc": "p25",
+     "quote": "However, the limitation can also be observed that the reasoning results are still general and more like background medical knowledge, yet not specific to the input case.",
+     "topic": "VLM limits",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "bai2024m3d",
+   "section": "F",
+   "inclusion_rule": "R3: 3D multimodal LLM",
+   "access": "full text (arXiv PDF)",
+   "url": "https://arxiv.org/abs/2404.00578",
+   "title": "M3D: Advancing 3D Medical Image Analysis with Multi-Modal Large Language Models",
+   "authors": [
+    "Fan Bai",
+    "Yu-Xin Du",
+    "Tiejun Huang",
+    "Max Q.‐H. Meng",
+    "Bo Zhao"
+   ],
+   "year": 2024,
+   "venue": "arXiv preprint arXiv:2404.00578",
+   "volume": null,
+   "issue": null,
+   "pages": null,
+   "doi": "10.48550/arXiv.2404.00578",
+   "arxiv": "2404.00578",
+   "citations_s2": 195,
+   "text_file": "data/text/bai2024m3d.txt",
+   "excerpts": [
+    {
+     "id": "bai2024m3d#1",
+     "loc": "p1",
+     "quote": "However, previous research has primarily focused on 2D medical images, leaving 3D images under-explored, despite their richer spatial information.",
+     "topic": "VLM limits",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "li2025braingpt",
+   "section": "F",
+   "inclusion_rule": "R3/R4: 3D brain CT multimodal LLM",
+   "access": "full text (arXiv PDF)",
+   "url": "https://doi.org/10.1038/s41467-025-57426-0",
+   "title": "Towards a holistic framework for multimodal LLM in 3D brain CT radiology report generation",
+   "authors": [
+    "Cheng-Yi Li",
+    "Kao-Jung Chang",
+    "Cheng-Fu Yang",
+    "Hsin-Yu Wu",
+    "Wenting Chen",
+    "Hritik Bansal",
+    "Ling Chen",
+    "Yi-Ping Yang",
+    "Yu-Chun Chen",
+    "Shih-Pin Chen",
+    "Shih-Jen Chen",
+    "Jiing-Feng Lirng",
+    "Kai-Wei Chang",
+    "Shih-Hwa Chiou"
+   ],
+   "year": 2025,
+   "venue": "Nature Communications",
+   "volume": "16",
+   "issue": "1",
+   "pages": "2258",
+   "doi": "10.1038/s41467-025-57426-0",
+   "arxiv": "2407.02235",
+   "citations_s2": 97,
+   "text_file": "data/text/li2025braingpt.txt",
+   "excerpts": [
+    {
+     "id": "li2025braingpt#1",
+     "loc": "p1",
+     "quote": "Toward deploying MLLM for more applicable diagnostic context, we noticed that the (1) scarcity of 3D image training dataset, (2) the direct use of undifferentiated foundation MLLMs, and (3) the lack of pertinent caption evaluation metrics were independent domain-specific constraints that integratively hobbles the iteration of next-generation medical MLLM research.",
+     "topic": "VLM limits",
+     "verified": "exact"
+    },
+    {
+     "id": "li2025braingpt#2",
+     "loc": "p1",
+     "quote": "In this regard, this study collected a 3D-BrainCT dataset (18,885 text-scan pairs) and applied clinical visual instruction tuning (CVIT) to train volumetric anatomy-sensible BrainGPT models to generate radiology-adherent 3D brain CT reports.",
+     "topic": "VLM option",
+     "verified": "exact"
+    }
+   ]
+  },
+  {
+   "key": "dalmazo2025switch",
+   "section": "B",
+   "inclusion_rule": "R1: ISLES'24 submission chapter",
+   "access": "not accessible (paywalled; no abstract in Semantic Scholar/OpenAlex; publisher blocks automated access) — listed only, not cited for claims",
+   "url": "https://doi.org/10.1007/978-3-031-81101-2_11",
+   "title": "Final Stroke Infarct Segmentation Using Deep Neural Networks",
+   "authors": [
+    "Luan Matheus Trindade Dalmazo",
+    "Kumaradevan Punithakumar"
+   ],
+   "year": 2025,
+   "venue": "Lecture Notes in Computer Science",
+   "volume": null,
+   "issue": null,
+   "pages": "95-99",
+   "doi": "10.1007/978-3-031-81101-2_11",
+   "arxiv": null,
+   "citations_s2": 0,
+   "text_file": "data/text/dalmazo2025switch.txt",
+   "excerpts": []
+  },
+  {
+   "key": "urunuela2025switch",
+   "section": "B",
+   "inclusion_rule": "R1: ISLES'24 submission chapter",
+   "access": "not accessible (paywalled; no abstract in Semantic Scholar/OpenAlex; publisher blocks automated access) — listed only, not cited for claims",
+   "url": "https://doi.org/10.1007/978-3-031-81101-2_12",
+   "title": "A Multi-modal Deep Learning Framework for Final Infarct Prediction in Acute Ischemic Stroke: Combining CTA, NCCT, and Clinical Data",
+   "authors": [
+    "Eneko Uruñuela",
+    "Annabella Bregazzi",
+    "Matthias Wilms"
+   ],
+   "year": 2025,
+   "venue": "Lecture Notes in Computer Science",
+   "volume": null,
+   "issue": null,
+   "pages": "100-105",
+   "doi": "10.1007/978-3-031-81101-2_12",
+   "arxiv": null,
+   "citations_s2": 0,
+   "text_file": "data/text/urunuela2025switch.txt",
+   "excerpts": []
+  }
+ ],
+ "screening_excluded": [
+  {
+   "candidate": "Isensee et al. 2018, nnU-Net: Self-adapting Framework (arXiv:1809.10486)",
+   "found_via": "keyword search",
+   "decision": "excluded",
+   "reason": "superseded by Isensee et al. 2021 (Nature Methods)"
+  },
+  {
+   "candidate": "Gava et al. 2021, Neural Network-derived perfusion maps (arXiv:2101.05992)",
+   "found_via": "arXiv search",
+   "decision": "excluded",
+   "reason": "off-task: synthesises perfusion maps, does not predict final infarct"
+  },
+  {
+   "candidate": "Bertels et al. 2022, Final infarct prediction in acute ischemic stroke (arXiv:2211.04850)",
+   "found_via": "arXiv search",
+   "decision": "excluded",
+   "reason": "tutorial overview; primary sources (Robben 2020) cited instead"
+  },
+  {
+   "candidate": "Deep Learning-Based Automatic Segmentation of Ischemic Stroke Lesions in CT Perfusion Imaging (Biomimetics 2026, PMC13204576)",
+   "found_via": "web search",
+   "decision": "excluded",
+   "reason": "off-task: ISLES 2018 core segmentation only"
+  },
+  {
+   "candidate": "Early Prediction of Ischaemic Stroke Outcomes: A Novel Computational Approach (bioRxiv 2024)",
+   "found_via": "forward citation of ISLES'24",
+   "decision": "excluded",
+   "reason": "off-task: biomechanical brain-swelling model, not infarct prediction"
+  },
+  {
+   "candidate": "Infarct-volume prognostic value depends on outcome ascertainment... (Eur J Radiol 2026)",
+   "found_via": "forward citation of ISLES'24",
+   "decision": "excluded",
+   "reason": "off-task: functional-outcome prognosis from MRI datasets"
+  },
+  {
+   "candidate": "TopCoW challenge (NEJM AI 2023, arXiv:2312.17670)",
+   "found_via": "forward citation of ISLES'24",
+   "decision": "excluded",
+   "reason": "off-task: vessel segmentation"
+  },
+  {
+   "candidate": "Albers et al. 2018 (DEFUSE 3), Saver 2006, Feigin 2025",
+   "found_via": "problem statement",
+   "decision": "excluded from review",
+   "reason": "clinical background; cited in problem_statement.md, not methods literature"
+  }
+ ]
+}

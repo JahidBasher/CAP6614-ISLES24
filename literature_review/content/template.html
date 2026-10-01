@@ -1,0 +1,239 @@
+<title>ISLES'24 Literature Review</title>
+<meta name="description" content="Evidence-linked literature review on final infarct prediction for ISLES'24: state of the art, temporal perfusion modelling, video encoders and VLMs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* Layout: reading column (~68ch) with a sticky contents rail on wide screens; citations open a quote drawer
+   (right side on desktop, bottom sheet on phones). Palette borrows from perfusion imaging: cool scanner-room
+   neutrals, a cyan-teal for evidence, and a Tmax-map amber reserved for our own interpretation. */
+:root{
+  --bg:#f3f5f6; --surface:#ffffff; --ink:#15202a; --muted:#566571; --rule:#d3dbe0;
+  --evidence:#0a6b73; --evidence-soft:#e1f0f1; --ours:#8a5300; --ours-soft:#fbf1e1;
+  --sec-a:#3c5a99; --sec-b:#0a6b73; --sec-c:#7b4bb0; --sec-d:#4d6b2f; --sec-e:#a2402a; --sec-f:#8a5300;
+  --shadow:0 10px 30px rgba(18,32,44,.14);
+  --f-body:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --f-ui:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --step--1:.84rem; --step-0:1.06rem; --step-1:1.3rem; --step-2:1.7rem; --step-3:2.35rem;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e151b; --surface:#151f27; --ink:#e2e8ec; --muted:#9aa9b4; --rule:#2a3845;
+  --evidence:#5cc6cc; --evidence-soft:#123036; --ours:#e6b45e; --ours-soft:#2c2414;
+  --sec-a:#8fa9e6; --sec-b:#5cc6cc; --sec-c:#bf9ae8; --sec-d:#a6c97f; --sec-e:#ee9a83; --sec-f:#e6b45e;
+  --shadow:0 10px 30px rgba(0,0,0,.5); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e151b; --surface:#151f27; --ink:#e2e8ec; --muted:#9aa9b4; --rule:#2a3845;
+  --evidence:#5cc6cc; --evidence-soft:#123036; --ours:#e6b45e; --ours-soft:#2c2414;
+  --sec-a:#8fa9e6; --sec-b:#5cc6cc; --sec-c:#bf9ae8; --sec-d:#a6c97f; --sec-e:#ee9a83; --sec-f:#e6b45e;
+  --shadow:0 10px 30px rgba(0,0,0,.5); color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:400 var(--step-0)/1.62 var(--f-body);margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,40px);padding-block:clamp(24px,5vw,56px) 80px;
+  display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
+@media (min-width:1080px){.wrap{grid-template-columns:210px minmax(0,1fr)}}
+main{min-width:0;max-width:72ch}
+a{color:var(--evidence)}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--evidence);outline-offset:2px;border-radius:3px}
+h1,h2,h3,h4{font-family:var(--f-ui);text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:var(--step-3);font-weight:600;letter-spacing:-.01em}
+h2{font-size:var(--step-2);font-weight:600;margin:2.6rem 0 1rem;display:flex;gap:.6rem;align-items:baseline}
+h3{font-size:var(--step-1);font-weight:600;margin:2rem 0 .8rem}
+h4{font-size:1rem;font-weight:600}
+p,ul,ol{margin:0 0 1rem}
+li{margin-bottom:.35rem}
+.secno{font-family:var(--f-mono);font-size:var(--step--1);font-weight:500;color:var(--muted);min-width:1.6em}
+
+/* header */
+.eyebrow{font:500 .76rem/1 var(--f-ui);text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:.9rem}
+.lede{font-size:var(--step-1);line-height:1.45;color:var(--ink);margin:1rem 0 1.4rem;max-width:60ch}
+.stats{display:flex;flex-wrap:wrap;gap:8px 24px;font:400 var(--step--1)/1.4 var(--f-ui);color:var(--muted);
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding-block:.8rem;margin-bottom:1.2rem}
+.stats b{font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.legend{font:400 var(--step--1)/1.5 var(--f-ui);color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center}
+
+/* toc */
+nav.toc{font:400 .88rem/1.4 var(--f-ui)}
+@media (min-width:1080px){nav.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px);align-self:start;max-height:calc(100vh - 48px);overflow:auto}}
+nav.toc h2{font-size:.76rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:0 0 .7rem}
+nav.toc ol{list-style:none;padding:0;margin:0;display:grid;gap:2px}
+nav.toc a{display:flex;gap:.5rem;text-decoration:none;color:var(--ink);padding:.28rem .4rem;border-radius:4px}
+nav.toc a:hover{background:var(--evidence-soft)}
+nav.toc .n{font-family:var(--f-mono);color:var(--muted);min-width:1.4em}
+
+/* citations & our-reading */
+.cite{font:500 .74em/1 var(--f-mono);text-decoration:none;color:var(--evidence);background:var(--evidence-soft);
+  padding:.12em .32em;border-radius:3px;white-space:nowrap;vertical-align:.12em;margin-left:1px}
+.cite:hover{background:var(--evidence);color:var(--surface)}
+.ours{background:var(--ours-soft);padding:.9rem 1rem;border-radius:4px}
+.ours + .ours, .ours + .ours-list, .ours-list + .ours{margin-top:-1rem;border-top-left-radius:0;border-top-right-radius:0}
+ol.ours-list{background:var(--ours-soft);margin-top:-1rem;padding:.2rem 1rem .9rem 2.4rem;border-radius:0 0 4px 4px}
+.ours-tag{font:600 .7rem/1 var(--f-ui);text-transform:uppercase;letter-spacing:.1em;color:var(--ours);
+  border:1px solid currentColor;padding:.2em .45em;border-radius:3px;margin-right:.4rem;white-space:nowrap;vertical-align:.1em}
+.legend .ours-tag{margin:0}
+ol.gaps{padding-left:1.3rem}
+ol.gaps li{margin-bottom:.7rem}
+
+/* tables */
+.table-wrap{overflow-x:auto;margin:1.4rem 0 1.6rem;border:1px solid var(--rule);border-radius:4px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font:400 .86rem/1.45 var(--f-ui)}
+caption{caption-side:top;text-align:left;padding:.8rem .9rem;color:var(--muted);font-size:.84rem;border-bottom:1px solid var(--rule)}
+th,td{padding:.55rem .7rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule)}
+thead th{font-weight:600;font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--bg)}
+tr.grp th{font-weight:600;font-size:.8rem;color:var(--ink);background:var(--evidence-soft)}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+table.cmp{min-width:820px}
+table.refs{min-width:900px}
+table.refs td.refcell{min-width:340px}
+.reftitle{font-weight:600}
+.refmeta{color:var(--muted);font-size:.84rem;font-family:var(--f-ui)}
+.refcell a{font-size:.78rem;word-break:break-all}
+.access{color:var(--muted);font-size:.76rem}
+.chip{display:inline-block;font:500 .7rem/1.3 var(--f-ui);padding:.12em .45em;border-radius:3px;border:1px solid currentColor;white-space:nowrap}
+.sec-A{color:var(--sec-a)}.sec-B{color:var(--sec-b)}.sec-C{color:var(--sec-c)}.sec-D{color:var(--sec-d)}.sec-E{color:var(--sec-e)}.sec-F{color:var(--sec-f)}
+
+/* appendices */
+.appendix{border-top:2px solid var(--ink);margin-top:3.5rem;padding-top:.4rem}
+.note{font:400 var(--step--1)/1.55 var(--f-ui);color:var(--muted)}
+.evpaper{border-top:1px solid var(--rule);padding-block:1rem}
+.evpaper h4{font-size:.95rem}
+.refno{font-family:var(--f-mono);color:var(--evidence);font-weight:500}
+ol.exlist{list-style:none;padding:0;margin:.6rem 0 0;display:grid;gap:.8rem}
+ol.exlist li{margin:0;scroll-margin-top:24px}
+ol.exlist li:target blockquote{background:var(--evidence-soft)}
+blockquote{margin:0;padding:.55rem .8rem;border-left:3px solid var(--evidence);background:var(--surface);font-size:.98rem;line-height:1.55;border-radius:0 4px 4px 0}
+.exmeta{font:400 .76rem/1.4 var(--f-ui);color:var(--muted);margin-top:.3rem}
+.exmeta code,code{font-family:var(--f-mono);font-size:.92em}
+.vchip{font-weight:500;color:var(--evidence)}
+.noquote{color:var(--muted);font-style:italic}
+
+/* quote drawer */
+.drawer{position:fixed;z-index:20;background:var(--surface);color:var(--ink);box-shadow:var(--shadow);border:1px solid var(--rule);
+  display:flex;flex-direction:column;font-family:var(--f-ui)}
+@media (min-width:760px){.drawer{top:calc(env(safe-area-inset-top,0px) + 16px);right:16px;bottom:16px;width:min(440px,calc(100vw - 32px));border-radius:6px}}
+@media (max-width:759px){.drawer{left:0;right:0;bottom:0;max-height:72vh;border-radius:10px 10px 0 0;padding-bottom:env(safe-area-inset-bottom,0px)}}
+.drawer header{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.8rem 1rem;border-bottom:1px solid var(--rule)}
+.drawer header span{font-size:.76rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:500}
+.drawer button{font:500 .85rem var(--f-ui);background:none;border:1px solid var(--rule);color:var(--ink);border-radius:4px;padding:.35rem .7rem;cursor:pointer}
+.drawer button:hover{border-color:var(--ink)}
+.drawer .items{overflow:auto;padding:1rem;display:grid;gap:1.2rem}
+.drawer .ptitle{font-weight:600;font-size:.92rem;line-height:1.35;margin-bottom:.15rem}
+.drawer .pmeta{font-size:.78rem;color:var(--muted);margin-bottom:.5rem}
+.drawer blockquote{font-family:var(--f-body)}
+.drawer .links{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.8rem;margin-top:.4rem}
+@media (prefers-reduced-motion:no-preference){.drawer{transition:opacity .15s ease}}
+</style>
+
+<div class="wrap">
+<nav class="toc" aria-label="Contents">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#scope"><span class="n">1</span>Scope and method</a></li>
+    <li><a href="#lineage"><span class="n">2</span>Visible lesions to future tissue</a></li>
+    <li><a href="#sota"><span class="n">3</span>State of the art</a></li>
+    <li><a href="#recent"><span class="n">4</span>Post-challenge work</a></li>
+    <li><a href="#temporal"><span class="n">5</span>Temporal perfusion</a></li>
+    <li><a href="#backbones"><span class="n">6</span>Backbones</a></li>
+    <li><a href="#video"><span class="n">7</span>Video models</a></li>
+    <li><a href="#vlm"><span class="n">8</span>Foundation models &amp; VLMs</a></li>
+    <li><a href="#gaps"><span class="n">9</span>Gaps for this project</a></li>
+    <li><a href="#papers"><span class="n">A</span>Paper list</a></li>
+    <li><a href="#evidence"><span class="n">B</span>Verbatim evidence</a></li>
+    <li><a href="#screening"><span class="n">C</span>Screening log</a></li>
+    <li><a href="#verification"><span class="n">D</span>Verification</a></li>
+  </ol>
+</nav>
+
+<main>
+<header>
+  <div class="eyebrow">CAP6614 project · literature review · 30 September 2026</div>
+  <h1>Predicting the final infarct on ISLES'24</h1>
+  <p class="lede">What the literature says about predicting post-treatment infarcts from acute CT, whether perfusion time series and video encoders help, and where vision-language models fit.</p>
+  <div class="stats">
+    <span><b>{{NPAPERS}}</b> papers included (of {{NSCREEN}} screened)</span>
+    <span><b>{{NQUOTED}}</b> quoted</span>
+    <span><b>{{NEX}}</b> verbatim excerpts</span>
+    <span><b>{{NFAIL}}</b> unverified</span>
+    <span>Main body <b>{{WORDS}}</b> words</span>
+  </div>
+  <div class="legend">
+    <span><a class="cite" href="#evidence" tabindex="-1" aria-hidden="true">[n]</a> opens the verbatim source quote</span>
+    <span><span class="ours-tag">Our reading</span> marks our interpretation, not a source's claim</span>
+  </div>
+</header>
+
+{{BODY}}
+
+<section id="papers" class="appendix">
+<h2><span class="secno">A</span>Paper list</h2>
+<p class="note">Numbered in order of first citation. Venue, volume and pages come from Crossref when the paper has a DOI, otherwise from Semantic Scholar or the arXiv listing. Citation counts come from the Semantic Scholar API and were retrieved on 30 September 2026. Very recent papers will show low counts.</p>
+<div class="table-wrap" role="region" aria-label="Paper list" tabindex="0">
+<table class="refs">
+<thead><tr><th scope="col">#</th><th scope="col">Citation</th><th scope="col">Published venue</th><th scope="col">Year</th><th scope="col">Cited by</th><th scope="col">Topic · access</th></tr></thead>
+<tbody>
+{{PAPERS}}
+</tbody>
+</table>
+</div>
+</section>
+
+<section id="evidence" class="appendix">
+<h2><span class="secno">B</span>Verbatim evidence</h2>
+<p class="note">Every excerpt cited above, grouped by paper. Excerpt IDs match <code>excerpts.json</code>. Page numbers refer to the downloaded PDF. For PubMed Central XML and abstract-only sources, the location is a section name.</p>
+{{EVIDENCE}}
+</section>
+
+<section id="screening" class="appendix">
+<h2><span class="secno">C</span>Screening log: excluded candidates</h2>
+<p class="note">Inclusion rules: R1, reports on ISLES'24 or describes it; R2, predicts final infarct or core from acute CT/CTP; R3, original source of a method we rely on; R4, evidence for a specific claim. Each included paper's rule is recorded in <code>excerpts.json</code>.</p>
+<div class="table-wrap" role="region" aria-label="Excluded candidates" tabindex="0">
+<table><thead><tr><th scope="col">Candidate</th><th scope="col">Found via</th><th scope="col">Reason for exclusion</th></tr></thead>
+<tbody>{{SCREEN}}</tbody></table>
+</div>
+</section>
+
+<section id="verification" class="appendix">
+<h2><span class="secno">D</span>Verification</h2>
+<p>Each source was downloaded and its text extracted locally from the arXiv or publisher PDF, PubMed Central XML, or the PubMed abstract. Excerpts were copied from that text, not paraphrased by a model. A script then checked each excerpt against the source after Unicode normalisation, ligature expansion, re-joining of words hyphenated across line breaks, and whitespace collapsing.</p>
+<p><b>{{NEXACT}}</b> excerpts matched exactly. <b>{{NWS}}</b> matched once all whitespace was ignored: the PDF extractor had split or merged words, for example "lesion o utcome". In those cases the characters are identical. <b>{{NFAIL}}</b> failed.</p>
+<p class="note">What verification does not cover: it proves that each quote exists in its source. It does not prove that the surrounding sentence in this review characterises the quote fairly, so judge that by reading the quote. Two sources are abstracts taken from non-publisher pages: Mojtahedi et al. from the Amsterdam UMC repository, and Amador et al. 2024 from the authors' GitHub README. The ISLES'24 dataset paper is quoted from its arXiv preprint (2408.11142), because the Radiology: AI version is paywalled.</p>
+</section>
+</main>
+</div>
+
+<aside class="drawer" id="drawer" hidden role="dialog" aria-modal="false" aria-labelledby="drawer-label">
+  <header><span id="drawer-label">Source quote</span><button type="button" id="drawer-close">Close</button></header>
+  <div class="items" id="drawer-items"></div>
+</aside>
+
+<script id="panel-data" type="application/json">{{PANELDATA}}</script>
+<script>
+(function(){
+  var data={};
+  try{data=JSON.parse(document.getElementById('panel-data').textContent);}catch(e){return;}
+  var drawer=document.getElementById('drawer'), items=document.getElementById('drawer-items'), lastBtn=null;
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function open(ids,btn){
+    lastBtn=btn;
+    items.innerHTML=ids.map(function(id){
+      var d=data[id]; if(!d) return '';
+      return '<div><div class="ptitle">['+d.n+'] '+esc(d.t)+'</div>'+
+        '<div class="pmeta">'+esc(d.a)+' · '+esc(d.y)+' · '+esc(d.loc)+' · '+(d.v==='exact'?'exact match':'match after PDF spacing normalisation')+'</div>'+
+        '<blockquote>'+esc(d.q)+'</blockquote>'+
+        '<div class="links"><a href="'+esc(d.u)+'" target="_blank" rel="noopener">Open source</a>'+
+        '<a href="#'+esc(d.anc)+'" data-jump="1">Show in evidence list</a><span>'+esc(id)+'</span></div></div>';
+    }).join('');
+    drawer.hidden=false;
+    document.getElementById('drawer-close').focus();
+  }
+  function close(){drawer.hidden=true; if(lastBtn) lastBtn.focus();}
+  document.addEventListener('click',function(ev){
+    var a=ev.target.closest('a.cite[data-ids]');
+    if(a){ev.preventDefault(); open(a.getAttribute('data-ids').split('|'),a); return;}
+    if(ev.target.closest('a[data-jump]')){drawer.hidden=true;}
+  });
+  document.getElementById('drawer-close').addEventListener('click',close);
+  document.addEventListener('keydown',function(ev){if(ev.key==='Escape'&&!drawer.hidden)close();});
+})();
+</script>

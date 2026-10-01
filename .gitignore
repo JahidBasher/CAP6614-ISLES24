@@ -1,0 +1,33 @@
+# macOS / editors
+.DS_Store
+.vscode/
+*.swp
+
+# LaTeX build output
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.pdf
+!project_guideline/*.pdf
+
+# Python
+__pycache__/
+*.pyc
+
+# Literature review: copyrighted full texts are re-downloadable with literature_review/scripts/fetch_sources.sh
+literature_review/data/papers/
+literature_review/data/text/*
+# abstract-only sources (cannot be re-fetched reliably) are kept
+!literature_review/data/text/amador2022spatiotemporal.txt
+!literature_review/data/text/amador2025switch.txt
+!literature_review/data/text/ajnr2026recanalization.txt
+!literature_review/data/text/devries2023perfunet.txt
+!literature_review/data/text/isensee2021nnunet.txt
+!literature_review/data/text/mojtahedi2025switch.txt
