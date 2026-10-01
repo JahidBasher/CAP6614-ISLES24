@@ -9,7 +9,7 @@ Group project for CAP6614 (Mr. Waves, Sara, Jahid, Raiyaan). We predict the post
 | § | Section | Owner | File | Status |
 |---|---|---|---|---|
 | — | Title, authors, abstract | unassigned | `overleaf/main.tex`, `overleaf/sections/review.tex` | Title and authors need updating (only one author listed). Abstract empty. |
-| 2 | Problem and motivation | Mr. Waves | `overleaf/sections/review.tex` | Empty. Source material: [initial_problem_statement.md](methodology_proposal/initial_problem_statement.md) |
+| 2 | Problem and motivation | Mr. Waves | `overleaf/sections/review.tex` | Empty. Source material: [initial_problem_statement.md](methodology_proposal/initial_problem_statement.md) (prepared by claude based on existing section)|
 | 3 | Related work and research gap | Sara | `overleaf/sections/review.tex` | Drafted |
 | 4 | Proposed method | Jahid | `overleaf/sections/method.tex` | Drafted (version 1, with TikZ figure) |
 | 5 | Dataset and experiments | Jahid | `overleaf/sections/method.tex` | Drafted (version 1) |
